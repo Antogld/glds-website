@@ -2,6 +2,9 @@ import React from 'react'
 import person1 from "../assets/home_seven_img1.png"
 import person2 from "../assets/home_seven_img2.png"
 import person3 from "../assets/home_seven_img3.png"
+import person4 from "../assets/8.jpg"
+import person5 from "../assets/4.jpg"
+import person6 from "../assets/13.jpg"
 
 const Testimonials = () => {
   return <>
@@ -59,7 +62,7 @@ const Testimonials = () => {
           </div>
           <div className="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
             <div className="flex gap-4">
-              <img className="w-12 h-12 rounded-full" src={person3} alt="" width="" height="" loading="lazy" />
+              <img className="w-12 h-12 rounded-full" src={person4} alt="" width="" height="" loading="lazy" />
               <div>
                 <h6 className="text-lg font-medium text-gray-700 dark:text-white">Luca Martini</h6>
                 <p className="text-sm text-gray-500 dark:text-gray-400">Impresa edile Martini</p>
@@ -69,7 +72,7 @@ const Testimonials = () => {
           </div>
           <div className="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
             <div className="flex gap-4">
-              <img className="w-12 h-12 rounded-full" src={person2} alt="" width="" height="" loading="lazy" />
+              <img className="w-12 h-12 rounded-full" src={person5} alt="" width="" height="" loading="lazy" />
               <div>
                 <h6 className="text-lg font-medium text-gray-700 dark:text-white">Marco Sampieri</h6>
                 <p className="text-sm text-gray-500 dark:text-gray-400">Sampieri & Co.</p>
