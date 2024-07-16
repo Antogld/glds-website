@@ -5,7 +5,7 @@ import { Button } from './ui/button'
 
 const AboutPage = () => {
   return <>
-    <div className="my-32 w-full grid-cols-1 justify-center max-w-7xl mx-auto md:flex md:gap-5 lg:grid lg:grid-cols-2">
+    <div className="my-32 w-full grid-cols-1 bg-white justify-center max-w-7xl mx-auto md:flex md:gap-5 lg:grid lg:grid-cols-2">
       <div className="col-span-1 flex flex-col justify-center text-center md:w-3/5 lg:w-full lg:justify-center lg:text-left">
         <div className="mb-4 flex items-center justify-center lg:justify-start">
           {/* <img className="h-5" src="/path/to/logo-1.png" alt="logo" /> */}
