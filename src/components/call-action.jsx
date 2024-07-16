@@ -7,7 +7,7 @@ export default function CallAction() {
   return (
     <section>
       <div className="mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 bg-white">
-        <header className="text-center">
+        <header className="text-center mb-20">
           <h2 className="text-xl font-bold text-gray-900 sm:text-3xl max-w-screen-lg mx-auto">Qualunque sia il tuo punto di partenza, qualunque sia il tuo obiettivo,
             Galdiero Systems è con te.</h2>
 
