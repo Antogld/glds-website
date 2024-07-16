@@ -32,31 +32,31 @@ const FAQItem = ({ question, answer }) => {
 const FAQs = () => {
   const faqData = [
     {
-      question: "What is React?",
-      answer: "React is a popular JavaScript library for building user interfaces, particularly single-page applications. It's used for handling the view layer in web and mobile apps."
+      question: "Che tipo di azienda è la Galdiero Systems? Cosa fate?",
+      answer: "La Galdiero Systems è un'azienda specializzata nello sviluppo di soluzioni software innovative. Il nostro focus principale è la progettazione e l'implementazione di software avanzati, con particolare attenzione alle esigenze delle imprese. La nostra missione è fornire strumenti potenti e su misura per ottimizzare le operazioni aziendali e promuovere la crescita sostenibile."
     },
     {
-      question: "How do I install React?",
-      answer: "You can create a new React project using Create React App. Run 'npx create-react-app my-app' in your terminal, replace 'my-app' with your project name."
+      question: "Quali sono i vantaggi dei vostri software?",
+      answer: "I nostri software offrono una serie di vantaggi distintivi, tra cui l'efficienza operativa, che ottimizza i processi aziendali riducendo i tempi e migliorando la produttività. La precisione e l'affidabilità sono al centro delle nostre soluzioni, garantendo dati accurati per decisioni informate. Innoviamo costantemente, integrando le ultime tecnologie per mantenere i nostri prodotti all'avanguardia e competitivi nel panorama tecnologico in evoluzione. Il nostro impegno per il supporto clienti è ineguagliato, offrendo assistenza dedicata e tempestiva per garantire una user experience positiva. La sicurezza dei dati è una nostra priorità, e implementiamo misure robuste per proteggere le informazioni aziendali. Siamo impegnati a fornire soluzioni software che superano le aspettative, migliorando la performance complessiva delle imprese."
     },
     {
-      question: "What are React hooks?",
-      answer: "React hooks are functions that let you use state and other React features in functional components. Common hooks include useState, useEffect, and useContext."
+      question: "Quanti software sono disponibili adesso?",
+      answer: "Al momento, l'unico software disponibile è Restruct. Tuttavia, stiamo attivamente lavorando su nuovi software in fase di sviluppo per ampliare ulteriormente la nostra offerta e fornire soluzioni ancora più avanzate per le esigenze aziendali. Resta connesso per le prossime innovazioni!"
     },
     {
-      question: "What is JSX?",
-      answer: "JSX is a syntax extension for JavaScript, recommended for use with React. It looks similar to XML/HTML and allows you to write HTML structures in the same file as your JavaScript code."
-    },
-    {
-      question: "What is the virtual DOM?",
-      answer: "The virtual DOM is a programming concept where an ideal, or 'virtual', representation of a UI is kept in memory and synced with the 'real' DOM by a library such as ReactDOM."
+      question: "I vostri software sono sicuri?",
+      answer: "La sicurezza dei nostri software è una nostra priorità assoluta. Implementiamo rigorose misure di sicurezza per proteggere i dati aziendali, garantendo la riservatezza, l'integrità e la disponibilità delle informazioni. La nostra dedizione alla sicurezza è progettata per offrire tranquillità ai nostri utenti e instaurare una fiducia solida nei confronti dei nostri prodotti."
     }
   ];
 
   return (
     <div className="bg-white dark:bg-gray-900 py-16">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">Frequently Asked Questions</h2>
+      <div className="container mx-auto px-4 ">
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white ">FAQ</h2>
+          <p className='max-w-5xl text-center mx-auto w-full'>Qui trovi le risposte alle domande più frequenti.
+            Se non trovi quello che cerchi puoi sempre contattarci e otterrai una risposta il prima possibile.</p>
+        </div>
         <div className="max-w-7xl mx-auto">
           {faqData.map((faq, index) => (
             <FAQItem key={index} question={faq.question} answer={faq.answer} />

@@ -19,7 +19,7 @@ const Testimonials = () => {
                   <p class="text-sm text-gray-500 dark:text-gray-400">Mobile dev</p>
                 </div>
             </div>
-            <p class="mt-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum aliquid quo eum quae quos illo earum ipsa doloribus nostrum minus libero aspernatur laborum cum, a suscipit, ratione ea totam ullam! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto laboriosam deleniti aperiam ab veniam sint non cumque quis tempore cupiditate. Sint libero voluptas veniam at reprehenderit, veritatis harum et rerum.</p>
+            <p class="mt-8">Ha veramente rivoluzionato il modo in cui gestisco i progetti e le risorse nella mia impresa. Mi ha permesso di tenere tutto sotto controllo, dal budget alle scadenze.</p>
           </div>
           <div class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
             <div class="flex gap-4">
