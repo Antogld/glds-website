@@ -8,7 +8,6 @@ const AboutPage = () => {
     <div className="my-32 w-full grid-cols-1 bg-white justify-center max-w-7xl mx-auto md:flex md:gap-5 lg:grid lg:grid-cols-2">
       <div className="col-span-1 flex flex-col justify-center text-center md:w-3/5 lg:w-full lg:justify-center lg:text-left">
         <div className="mb-4 flex items-center justify-center lg:justify-start">
-          {/* <img className="h-5" src="/path/to/logo-1.png" alt="logo" /> */}
           <h4 className=" text-2xl  sm:text-3xl font-bold  text-primary">
             La nostra visione:
             Connettere il Futuro Attraverso

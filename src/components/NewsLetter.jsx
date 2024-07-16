@@ -6,7 +6,7 @@ export default function NewsLetter() {
     <div className="relative isolate overflow-hidden bg-gray-900 py-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
-          <div className="max-w-xl lg:max-w-lg">
+          <div className="max-w-xl ">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Iscriviti alla nostra newsletter.</h2>
             <p className="mt-4 text-lg leading-8 text-gray-300">
               Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing velit quis. Duis tempor incididunt
@@ -38,7 +38,7 @@ export default function NewsLetter() {
               <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
                 <CalendarDaysIcon aria-hidden="true" className="h-6 w-6 text-white" />
               </div>
-              <dt className="mt-4 font-semibold text-white">Articoli settimanali</dt>
+              <dt className="mt-4 font-semibold text-white">News settimanali</dt>
               <dd className="mt-2 leading-7 text-gray-400">
                 Non laboris consequat cupidatat laborum magna. Eiusmod non irure cupidatat duis commodo amet.
               </dd>
@@ -47,7 +47,7 @@ export default function NewsLetter() {
               <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
                 <HandHelping aria-hidden="true" className="h-6 w-6 text-white" />
               </div>
-              <dt className="mt-4 font-semibold text-white">Nessuno spam</dt>
+              <dt className="mt-4 font-semibold text-white">No spam, promesso</dt>
               <dd className="mt-2 leading-7 text-gray-400">
                 Officia excepteur ullamco ut sint duis proident non adipisicing. Voluptate incididunt anim.
               </dd>

@@ -54,7 +54,7 @@ const FAQs = () => {
       <div className="container mx-auto px-4 ">
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white ">FAQ</h2>
-          <p className='max-w-5xl text-center mx-auto w-full'>Qui trovi le risposte alle domande più frequenti.
+          <p className=' text-center mx-auto w-full'>Qui trovi le risposte alle domande più frequenti.
             Se non trovi quello che cerchi puoi sempre contattarci e otterrai una risposta il prima possibile.</p>
         </div>
         <div className="max-w-7xl mx-auto">
