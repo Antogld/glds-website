@@ -9,13 +9,13 @@ const AboutPage = () => {
       <div className="col-span-1 flex flex-col justify-center text-center md:w-3/5 lg:w-full lg:justify-center lg:text-left">
         <div className="mb-4 flex items-center justify-center lg:justify-start">
           {/* <img className="h-5" src="/path/to/logo-1.png" alt="logo" /> */}
-          <h4 className=" text-2xl font-bold tracking-widest text-primary">
+          <h4 className=" text-2xl  sm:text-3xl font-bold  text-primary">
             La nostra visione:
             Connettere il Futuro Attraverso
             l'Innovazione Tecnologica
           </h4>
         </div>
-        <p className="mb-10 text-base font-medium leading-7 text-dark-grey-600 xl:w-3/4">
+        <p className="mb-10 font-medium leading-7 text-dark-grey-600 xl:w-3/4">
           La nostra missione è trasformare complessità in semplicità attraverso il potere della tecnologia.
           Con competenza e dedizione, progettiamo software che ottimizzano processi e permettono
           alle imprese di prosperare nell'era digitale. Siamo il tuo partner per l'evoluzione aziendale e

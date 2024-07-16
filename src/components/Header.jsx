@@ -53,7 +53,7 @@ const Header = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
+                className={`text-lg font-medium transition-colors hover:text-primary ${
                   isHomepage && !isScrolled ? 'text-white' : 'text-gray-700'
                 }`}
               >
