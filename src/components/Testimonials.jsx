@@ -50,36 +50,6 @@ const Testimonials = () => {
             </div>
             <p className="mt-8">Nel corso degli anno abbiamo provato vai software, questo si distingue veramente. Forse l'unico che vale davvero la pena acquistare, ci sono ancora alcune funzionalità da migliorare e da aggiungere ma la base di partenza è buona.</p>
           </div>
-          <div className="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
-            <div className="flex gap-4">
-              <img className="w-12 h-12 rounded-full" src={person1} alt="" width="" height="" loading="lazy" />
-              <div>
-                <h6 className="text-lg font-medium text-gray-700 dark:text-white">Alessandro Ferrari</h6>
-                <p className="text-sm text-gray-500 dark:text-gray-400">Ingegnere</p>
-              </div>
-            </div>
-            <p className="mt-8">Ha veramente rivoluzionato il modo in cui gestisco i progetti e le risorse nella mia impresa. Mi ha permesso di tenere tutto sotto controllo, dal budget alle scadenze.</p>
-          </div>
-          <div className="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
-            <div className="flex gap-4">
-              <img className="w-12 h-12 rounded-full" src={person4} alt="" width="" height="" loading="lazy" />
-              <div>
-                <h6 className="text-lg font-medium text-gray-700 dark:text-white">Luca Martini</h6>
-                <p className="text-sm text-gray-500 dark:text-gray-400">Impresa edile Martini</p>
-              </div>
-            </div>
-            <p className="mt-8">Uno dei migliori software gestionali in circolazione, nulla da dire. La facilità d'uso è un grandissimo vantaggio rispetto ad altri software. Complimenti davvero al team che lo ha sviluppato, è chiaro che di edilizia ne capiscono.</p>
-          </div>
-          <div className="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
-            <div className="flex gap-4">
-              <img className="w-12 h-12 rounded-full" src={person5} alt="" width="" height="" loading="lazy" />
-              <div>
-                <h6 className="text-lg font-medium text-gray-700 dark:text-white">Marco Sampieri</h6>
-                <p className="text-sm text-gray-500 dark:text-gray-400">Sampieri & Co.</p>
-              </div>
-            </div>
-            <p className="mt-8">Nel corso degli anno abbiamo provato vai software, questo si distingue veramente. Forse l'unico che vale davvero la pena acquistare, ci sono ancora alcune funzionalità da migliorare e da aggiungere ma la base di partenza è buona.</p>
-          </div>
         </div>
       </div>
     </div>
