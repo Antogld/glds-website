@@ -32,48 +32,47 @@ const FeatureRow = ({ feature, tiers }) => (
 )
 
 const Restruct = () => {
-  const [billingCycle, setBillingCycle] = useState('monthly')
+  const [billingCycle, setBillingCycle] = useState('mensile')
 
   const pricingTiers = [
-    { title: "Piano Basic", price: { monthly: 30, trimestrale: 85, annuale: 324 }, isPopular: false },
-    { title: "Piano Standard", price: { monthly: 60, trimestrale: 170, annuale: 648 }, isPopular: false },
-    { title: "Piano Professional", price: { monthly: 120, trimestrale: 340, annuale: 1296 }, isPopular: true },
-    { title: "Piano Enterprise", price: { monthly: 250, trimestrale: 710, annuale: 2700 }, isPopular: false }
+    { title: "Piano Base", price: { mensile: 30, trimestrale: 85, annuale: 324 }, isPopular: false },
+    { title: "Piano Standard", price: { mensile: 60, trimestrale: 170, annuale: 648 }, isPopular: false },
+    { title: "Piano Professionale", price: { mensile: 120, trimestrale: 340, annuale: 1296 }, isPopular: true },
+    { title: "Piano Enterprise", price: { mensile: 250, trimestrale: 710, annuale: 2700 }, isPopular: false }
   ]
 
-
   const features = [
-    { name: "Dynamic Entry", tiers: [20, 600, "Unlimited", "Unlimited"] },
-    { name: "Dynamic Entry", tiers: [5, 50, "Unlimited", "Unlimited"] },
-    { name: "Dynamic Entry", tiers: [true, true, true, true] },
-    { name: "Dynamic Entry", tiers: [true, true, true, true] },
-    { name: "Dynamic Entry", tiers: [false, true, true, true] },
-    { name: "Dynamic Entry", tiers: [false, true, true, true] },
-    { name: "Dynamic Entry", tiers: [false, false, true, true] },
-    { name: "Dynamic Entry", tiers: [false, false, true, true] },
-    { name: "Dynamic Entry", tiers: [false, false, true, true] },
-    { name: "Dynamic Entry", tiers: [false, true, true, true] },
-    { name: "Dynamic Entry", tiers: [true, true, true, true] },
+    { name: "Voce Dinamica", tiers: [20, 600, "Illimitato", "Illimitato"] },
+    { name: "Voce Dinamica", tiers: [5, 50, "Illimitato", "Illimitato"] },
+    { name: "Voce Dinamica", tiers: [true, true, true, true] },
+    { name: "Voce Dinamica", tiers: [true, true, true, true] },
+    { name: "Voce Dinamica", tiers: [false, true, true, true] },
+    { name: "Voce Dinamica", tiers: [false, true, true, true] },
+    { name: "Voce Dinamica", tiers: [false, false, true, true] },
+    { name: "Voce Dinamica", tiers: [false, false, true, true] },
+    { name: "Voce Dinamica", tiers: [false, false, true, true] },
+    { name: "Voce Dinamica", tiers: [false, true, true, true] },
+    { name: "Voce Dinamica", tiers: [true, true, true, true] },
   ]
 
   return <>
-    <section className="bg-slate-900 py-20">
+    <section className="bg-slate-900 py-20 mt-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 lg:pr-10">
             <h1 className="text-4xl text-white font-extrabold sm:text-5xl md:text-6xl mb-6">
-              Pricing Plans for Every Need
+              Piani di Prezzo per Ogni Esigenza
             </h1>
             <p className="mt-6 text-xl text-white text-opacity-80 max-w-2xl mx-auto">
-              Choose the perfect plan to power your projects with Restruct.
-              Flexible options to suit businesses of all sizes.
+              Scegli il piano perfetto per potenziare i tuoi progetti con Restruct.
+              Opzioni flessibili adatte ad aziende di tutte le dimensioni.
             </p>
             <div className="mt-10">
               <Button className="bg-blue-500 text-white hover:bg-blue-600">
-                Get Started
+                Inizia Ora
               </Button>
               <Button variant="outline" className="ml-4 ">
-                Contact Sales
+                Contatta Vendite
               </Button>
             </div>
           </div>
@@ -90,7 +89,7 @@ const Restruct = () => {
         </h2>
 
         <div className="flex justify-center mb-8">
-          {['monthly', 'trimestrale', 'annuale'].map((cycle) => (
+          {['mensile', 'trimestrale', 'annuale'].map((cycle) => (
             <button
               key={cycle}
               className={`px-4 py-2 ${billingCycle === cycle ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
@@ -107,7 +106,7 @@ const Restruct = () => {
               key={index}
               {...tier}
               price={tier.price[billingCycle]}
-              onTryFree={() => console.log(`Try free for ${tier.title}`)}
+              onTryFree={() => console.log(`Prova gratuita per ${tier.title}`)}
             />
           ))}
         </div>
@@ -117,9 +116,9 @@ const Restruct = () => {
             <thead>
               <tr className="bg-gray-100">
                 <th className="text-left py-2 px-4">Confronta i piani</th>
-                <th className="py-2 px-4">Basic</th>
+                <th className="py-2 px-4">Base</th>
                 <th className="py-2 px-4">Standard</th>
-                <th className="py-2 px-4">Professional</th>
+                <th className="py-2 px-4">Professionale</th>
                 <th className="py-2 px-4">Enterprise</th>
               </tr>
             </thead>
