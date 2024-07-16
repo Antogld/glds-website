@@ -25,7 +25,7 @@ const FeatureRow = ({ feature, tiers }) => (
     <td className="py-2">{feature}</td>
     {tiers.map((hasTier, index) => (
       <td key={index} className="text-center py-2">
-        {hasTier ? <Check className="inline h-5 w-5 text-green-500" /> : "-"}
+        {hasTier ? <Check className="inline h-5 w-5 text-blue-500" /> : "-"}
       </td>
     ))}
   </tr>
