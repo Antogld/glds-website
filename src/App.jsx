@@ -18,12 +18,12 @@ function App() {
   return <>
     <HeroSection />
     <LogoSection />
-    <Services />
+    {/* <Services /> */}
     <AboutPage />
     <CallAction />
-    <Products />
+    {/* <Products /> */}
     <FromItaly />
-    <HomePricing />
+    {/* <HomePricing /> */}
     <Testimonials />
     <FAQs />
     <NewsLetter />
