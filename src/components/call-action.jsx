@@ -22,7 +22,7 @@ export default function CallAction() {
               <img
                 src={bgaction}
                 alt="Inizia il tuo viaggio"
-                className="aspect-square w-full object-cover transition duration-500 group-hover:opacity-90"
+                className="aspect-square w-full object-cover transition duration-500 group-hover:opacity-90 rounded-xl"
               />
 
               <div className="absolute inset-0 flex flex-col items-start justify-end p-6">
@@ -42,7 +42,7 @@ export default function CallAction() {
               <img
                 src={action2}
                 alt=""
-                className="aspect-square w-full object-cover transition duration-500 group-hover:opacity-90"
+                className="aspect-square w-full object-cover transition duration-500 group-hover:opacity-90 rounded-xl"
               />
 
               <div className="absolute inset-0 flex flex-col items-start justify-end p-6">
@@ -62,7 +62,7 @@ export default function CallAction() {
               <img
                 src={action3}
                 alt=""
-                className="aspect-square w-full object-cover transition duration-500 group-hover:opacity-90"
+                className="aspect-square w-full object-cover transition duration-500 group-hover:opacity-90 rounded-xl"
               />
 
               <div className="absolute inset-0 flex flex-col items-start justify-end p-6">

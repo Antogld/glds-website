@@ -12,11 +12,13 @@ import Products from './components/Products'
 import FAQs from './components/Faq'
 import Testimonials from './components/Testimonials'
 import NewsLetter from './components/NewsLetter'
+import Services from './components/Services'
 
 function App() {
   return <>
     <HeroSection />
     <LogoSection />
+    <Services />
     <AboutPage />
     <CallAction />
     <Products />

@@ -32,13 +32,16 @@ const LogoSection = () => {
               {logos.concat(logos).map((logo, index) => (
                 <div
                   key={index}
-                  className="inline-block group rounded-xl border border-gray-200 dark:border-gray-600 py-2 px-2 mx-4"
+                  className="inline-block group rounded-xl border border-gray-200 dark:border-gray-600 py-2 px-2 mx-4 cursor-pointer"
                 >
                   <img
                     src={logo.src}
-                    className="md:h-20 h-8 w-auto contrast-0 transition group-hover:contrast-100"
+                    className="md:h-20 h-8 w-auto transition duration-300 ease-in-out"
                     loading="lazy"
                     alt={logo.alt}
+                    style={{
+                      filter: 'brightness(0) saturate(100%) invert(23%) sepia(90%) saturate(1352%) hue-rotate(202deg) brightness(97%) contrast(96%)'
+                    }}
                   />
                 </div>
               ))}
