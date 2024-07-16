@@ -32,11 +32,11 @@ const LogoSection = () => {
               {logos.concat(logos).map((logo, index) => (
                 <div
                   key={index}
-                  className="inline-block group rounded-xl border border-gray-200 dark:border-gray-600 bg-slate-900 py-2 px-2 mx-4"
+                  className="inline-block group rounded-xl border border-gray-200 dark:border-gray-600 py-2 px-2 mx-4"
                 >
                   <img
                     src={logo.src}
-                    className="h-20 w-auto contrast-0 transition group-hover:contrast-100"
+                    className="md:h-20 h-8 w-auto contrast-0 transition group-hover:contrast-100"
                     loading="lazy"
                     alt={logo.alt}
                   />
