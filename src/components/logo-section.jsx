@@ -1,19 +1,21 @@
 import React from 'react'
-import brandLogo1 from "../assets/brand-logo-1.png"
 import brandLogo2 from "../assets/company_icon2.png"
 import brandLogo3 from "../assets/company_icon3.png"
 import brandLogo4 from "../assets/company_icon4.png"
 import brandLogo5 from "../assets/company_icon5.png"
 import brandLogo6 from "../assets/company_icon6.png"
+import brandLogo7 from "../assets/company_icon7.png"
+import brandLogo8 from "../assets/company_icon8.png"
 
 const LogoSection = () => {
   const logos = [
-    { src: brandLogo1, alt: "Brand Logo 1" },
     { src: brandLogo2, alt: "Brand Logo 2" },
     { src: brandLogo3, alt: "Brand Logo 3" },
     { src: brandLogo4, alt: "Brand Logo 4" },
     { src: brandLogo5, alt: "Brand Logo 5" },
     { src: brandLogo6, alt: "Brand Logo 6" },
+    { src: brandLogo7, alt: "Brand Logo 7" },
+    { src: brandLogo8, alt: "Brand Logo 8" },
   ]
 
   return (
@@ -39,9 +41,6 @@ const LogoSection = () => {
                     className="md:h-20 h-8 w-auto transition duration-300 ease-in-out"
                     loading="lazy"
                     alt={logo.alt}
-                    style={{
-                      filter: 'brightness(0) saturate(100%) invert(23%) sepia(90%) saturate(1352%) hue-rotate(202deg) brightness(97%) contrast(96%)'
-                    }}
                   />
                 </div>
               ))}
