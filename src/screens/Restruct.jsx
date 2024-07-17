@@ -97,7 +97,7 @@ const Restruct = () => {
               <CarouselContent>
                 {carouselImages.map((image, index) => (
                   <CarouselItem key={index}>
-                    <img src={image} alt={`Hero ${index + 1}`} className="rounded-lg shadow-xl w-full h-auto" />
+                    <img src={image} alt={`Hero ${index + 1}`} className="rounded-lg shadow-xl w-full h-full object-cover" />
                   </CarouselItem>
                 ))}
               </CarouselContent>
