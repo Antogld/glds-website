@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
 import { Check } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import heroImage from '../assets/about-img.jpeg'
+import heroImage1 from '../assets/about-img.jpeg'
+import heroImage2 from '../assets/action-3.jpeg'
+import heroImage3 from '../assets/action2.jpeg'
 import FAQs from '@/components/Faq'
 import NewsLetter from '@/components/NewsLetter'
+import ServicesSection from '@/components/Services'
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
+import Autoplay from "embla-carousel-autoplay"
 
 const PricingTier = ({ title, price, isPopular, onTryFree }) => (
   <div className={`p-6 bg-white rounded-lg shadow ${isPopular ? 'border-2 border-blue-500' : ''}`}>
@@ -32,7 +37,13 @@ const FeatureRow = ({ feature, tiers }) => (
 )
 
 const Restruct = () => {
-  const [billingCycle, setBillingCycle] = useState('mensile')
+  const [billingCycle, setBillingCycle] = useState('mensile');
+
+  const plugin = React.useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true })
+  )
+
+  const carouselImages = [heroImage1, heroImage2, heroImage3]
 
   const pricingTiers = [
     { title: "Piano Base", price: { mensile: 30, trimestrale: 85, annuale: 324 }, isPopular: false },
@@ -56,7 +67,7 @@ const Restruct = () => {
   ]
 
   return <>
-    <section className="bg-slate-900 py-20 mt-10">
+    <section className="bg-slate-900 py-16 mt-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 lg:pr-10">
@@ -77,11 +88,25 @@ const Restruct = () => {
             </div>
           </div>
           <div className="lg:w-1/2 mt-10 lg:mt-0">
-            <img src={heroImage} alt="Hero" className="rounded-lg shadow-xl" />
+            <Carousel
+              plugins={[plugin.current]}
+              className="w-full"
+              onMouseEnter={plugin.current.stop}
+              onMouseLeave={plugin.current.reset}
+            >
+              <CarouselContent>
+                {carouselImages.map((image, index) => (
+                  <CarouselItem key={index}>
+                    <img src={image} alt={`Hero ${index + 1}`} className="rounded-lg shadow-xl w-full h-auto" />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
           </div>
         </div>
       </div>
     </section>
+    <ServicesSection />
     <section className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-8">
