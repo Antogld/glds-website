@@ -5,7 +5,7 @@ import { Button } from './ui/button'
 
 const AboutPage = () => {
   return <>
-    <div className="my-32 w-full grid-cols-1 bg-white justify-center max-w-7xl mx-auto md:flex md:gap-5 lg:grid lg:grid-cols-2">
+    <div className="md:my-32 my-20 w-full grid-cols-1 bg-white justify-center max-w-7xl mx-auto md:flex md:gap-5 lg:grid lg:grid-cols-2">
       <div className="col-span-1 flex flex-col justify-center text-center md:w-3/5 lg:w-full lg:justify-center lg:text-left">
         <div className="mb-4 flex items-center justify-center lg:justify-start">
           <h4 className=" text-2xl  sm:text-3xl font-bold  text-primary">

@@ -32,7 +32,7 @@ const Supporto = () => {
   };
 
   return (
-    <section className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+    <section className="min-h-screen max-sm:pt-20 bg-gray-50 flex items-center justify-center p-4">
       <div className="w-full max-w-6xl bg-white rounded-lg shadow-lg overflow-hidden">
         <div className="flex flex-col md:flex-row">
           <div className="w-full md:w-2/5 bg-gradient-to-br from-blue-600 to-blue-800 text-white p-8 relative">

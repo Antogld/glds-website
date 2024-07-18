@@ -4,7 +4,7 @@ import heroVideo from '../assets/hero-video.mp4';
 
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden h-[50vh] sm:h-[60vh] md:h-[70vh]">
+    <section className="relative overflow-hidden h-[60vh] sm:h-[60vh] md:h-[70vh]">
       {/* Video Background */}
       <video
         autoPlay
@@ -22,7 +22,7 @@ function HeroSection() {
 
       {/* Content */}
       <div className="relative container z-10 h-full flex items-center text-white">
-        <div className="px-4 sm:px-6 lg:px-8 text-left">
+        <div className="px-1 sm:px-6 lg:px-8 text-left">
           <p className="text-sm sm:text-base md:text-lg font-semibold text-blue-400 mb-2 sm:mb-4">
             Esplora nuovi orizzonti tecnologici
           </p>

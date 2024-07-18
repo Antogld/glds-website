@@ -9,21 +9,29 @@ import logo from "../assets/logo.png"
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [showHeader, setShowHeader] = useState(true)
   const location = useLocation()
   const isHomepage = location.pathname === '/'
 
   useEffect(() => {
+    let lastScrollY = window.scrollY
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0)
+      const currentScrollY = window.scrollY
+      if (currentScrollY > lastScrollY) {
+        // Scrolling down
+        setShowHeader(false)
+      } else {
+        // Scrolling up
+        setShowHeader(true)
+      }
+      lastScrollY = currentScrollY
+      setIsScrolled(currentScrollY > 0)
     }
 
-    if (isHomepage) {
-      window.addEventListener('scroll', handleScroll)
-      return () => window.removeEventListener('scroll', handleScroll)
-    } else {
-      setIsScrolled(true)
-    }
-  }, [isHomepage])
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const navLinks = [
     { to: "/", label: "Home" },
@@ -34,10 +42,9 @@ const Header = () => {
   const logoSrc = isHomepage && !isScrolled ? logoTransparent : logo
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isHomepage
-        ? isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
-        : 'bg-white shadow-md'
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300  ${isHomepage
+      ? isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+      : 'bg-white shadow-md'
     }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -72,11 +79,11 @@ const Header = () => {
           </div>
           <div className="md:hidden">
             <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-              <SheetTrigger asChild>
+              <SheetTrigger asChild className='pr-4'>
                 <Button
                   variant="ghost"
                   size="icon"
-                  className={isHomepage && !isScrolled ? 'text-white' : 'text-gray-700'}
+                  className={isHomepage && !isScrolled ? 'text-white' : 'text-gray-700 '}
                 >
                   {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                 </Button>
