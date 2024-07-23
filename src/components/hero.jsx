@@ -21,7 +21,7 @@ function HeroSection() {
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
       {/* Content */}
-      <div className="relative container z-10 h-full flex items-center max-sm:mt-10 text-white">
+      <div className="relative container z-10 h-full flex items-center max-sm:my-10 text-white">
         <div className="px-1 sm:px-6 lg:px-8 text-left">
           <p className="text-sm sm:text-base md:text-lg font-semibold text-blue-400 mb-2 sm:mb-4">
             Esplora nuovi orizzonti tecnologici
