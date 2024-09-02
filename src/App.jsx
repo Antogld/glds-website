@@ -27,7 +27,7 @@ function App() {
     {/* <HomePricing /> */}
     <Testimonials />
     <FAQs />
-    <NewsLetter />
+    <NewsLetter /> 
     <Blog />
   </>
 }
