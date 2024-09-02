@@ -6,22 +6,22 @@ import { Button } from './ui/button'
 const Blog = () => {
   	const blogData = [
 	    {
-		    "image": "src/assets/blogs/blog1.jpg",
+		    "image": "/assets/blogs/blog1.jpg",
 		    "Title": "Galdiero Systems: Innovazione e Sviluppo Software d'Avanguardia",
 		    "Content": "Galdiero Systems è un'azienda leader nel campo dello sviluppo software, specializzata nella creazione di soluzioni innovative su misura per le esigenze uniche delle imprese. Con un forte focus sulla progettazione e implementazione di software avanzati, il nostro obiettivo è ottimizzare le operazioni aziendali e promuovere una crescita sostenibile. Il nostro team di esperti si dedica a comprendere le sfide specifiche che le aziende affrontano oggi, lavorando instancabilmente per sviluppare strumenti potenti e personalizzati che semplificano i processi, migliorano l'efficienza e favoriscono il successo a lungo termine."
 		},
 		{
-		    "image": "src/assets/blogs/blog2.jpg",
+		    "image": "/assets/blogs/blog2.jpg",
 		    "Title": "Scopri i Vantaggi delle Soluzioni Software di Galdiero Systems",
 		    "Content": "Le nostre soluzioni software offrono una serie di vantaggi distintivi che ci differenziano nel settore. Uno dei principali vantaggi è l'aumento dell'efficienza operativa: i nostri strumenti sono progettati per ottimizzare i processi aziendali, riducendo tempi e sforzi e migliorando significativamente la produttività. Inoltre, il nostro software è costruito con precisione e affidabilità al centro, garantendo agli utenti l'accesso a dati accurati, essenziali per prendere decisioni informate. Siamo impegnati in un'innovazione continua, integrando le ultime tecnologie per mantenere i nostri prodotti all'avanguardia nel settore. La nostra dedizione al supporto clienti è senza pari, offrendo assistenza tempestiva e completa per garantire un'esperienza utente positiva. Inoltre, diamo priorità alla sicurezza dei dati, implementando misure robuste per proteggere le informazioni aziendali sensibili. In Galdiero Systems, ci sforziamo di superare le aspettative fornendo soluzioni software che migliorano le prestazioni complessive dell'azienda."
 		},
 		{
-		    "image": "src/assets/blogs/blog3.jpg",
+		    "image": "/assets/blogs/blog3.jpg",
 		    "Title": "Espansione del Nostro Portafoglio Software: Cosa è Disponibile e Cosa Arriverà",
 		    "Content": "Al momento, la nostra offerta software principale è Restruct, uno strumento potente progettato per rispondere a diverse esigenze aziendali. Restruct è stato accolto positivamente per la sua capacità di semplificare le operazioni e migliorare la produttività in vari settori. Tuttavia, il nostro impegno per l'innovazione non si ferma qui. Stiamo attivamente sviluppando nuove soluzioni software che amplieranno ulteriormente il nostro portafoglio e offriranno funzionalità ancora più avanzate per soddisfare le esigenze in evoluzione delle imprese. Questi nuovi prodotti in arrivo sono creati con la stessa attenzione ai dettagli e la dedizione alla qualità per cui Galdiero Systems è nota. Resta sintonizzato mentre ci prepariamo a lanciare questi entusiasmanti nuovi strumenti, che offriranno un supporto ancora maggiore alle aziende che desiderano migliorare le loro operazioni e raggiungere una crescita sostenuta."
 		},
 		{
-		    "image": "src/assets/blogs/blog4.jpg",
+		    "image": "/assets/blogs/blog4.jpg",
 		    "Title": "Perché la Sicurezza è una Priorità Assoluta per il Software di Galdiero Systems",
 		    "Content": "In Galdiero Systems, comprendiamo che la sicurezza dei dati aziendali è di fondamentale importanza. Per questo motivo, abbiamo fatto della nostra missione l'incorporazione di rigorose misure di sicurezza in ogni aspetto del nostro processo di sviluppo software. Le nostre soluzioni sono progettate per salvaguardare la riservatezza, l'integrità e la disponibilità delle informazioni, offrendoti la tranquillità che i tuoi dati sono protetti in ogni momento. Implementiamo tecnologie di crittografia avanzate e seguiamo le migliori pratiche in materia di cybersecurity per garantire che il nostro software sia resistente alle minacce. Inoltre, aggiorniamo continuamente i nostri protocolli di sicurezza per rimanere all'avanguardia rispetto ai potenziali rischi e vulnerabilità. Il nostro impegno incrollabile per la sicurezza è una testimonianza della nostra dedizione a costruire fiducia con i nostri clienti e a fornire soluzioni software su cui possono contare. Scegliendo Galdiero Systems, non stai solo investendo in software all'avanguardia, ma anche nella sicurezza e protezione degli asset più preziosi della tua azienda."
 		}
