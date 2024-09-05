@@ -11,6 +11,8 @@ import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import Restruct from './screens/Restruct.jsx';
 import Supporto from './screens/Support.jsx';
+import Blogs from './screens/Blogs.jsx';
+import AdminBlog from './screens/Manageblog.jsx';
 
 const Layout = () => {
   return (
@@ -41,6 +43,14 @@ const router = createBrowserRouter([
       {
         path: "/support",
         element: <Supporto />
+      },
+      {
+        path: "/blog",
+        element: <Blogs />
+      },
+      {
+        path: "/manageblog",
+        element: <AdminBlog />
       }
     ],
   },

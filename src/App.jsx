@@ -13,7 +13,6 @@ import FAQs from './components/Faq'
 import Testimonials from './components/Testimonials'
 import NewsLetter from './components/NewsLetter'
 import Services from './components/Services'
-import Blog from './components/Blog'
 
 function App() {
   return <>
@@ -27,8 +26,7 @@ function App() {
     {/* <HomePricing /> */}
     <Testimonials />
     <FAQs />
-    <NewsLetter /> 
-    <Blog />
+    <NewsLetter />
   </>
 }
 
