@@ -26,12 +26,14 @@ const AdminBlog = () => {
           setBlogs(blogs.map(blog => (blog._id === editingBlog._id ? res.data : blog)));
           setEditingBlog(null);
           setFormData({ Title: '', Content: '', image: '' });
+          setShowModal(false);
         });
     } else {
       axios.post(import.meta.env.VITE_API_URL + '/blog/blogs', formData)
         .then(res => {
           setBlogs([...blogs, res.data]);
           setFormData({ Title: '', Content: '', image: '' });
+          setShowModal(false);
         });
     }
   };
