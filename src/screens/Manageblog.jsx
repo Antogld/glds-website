@@ -38,10 +38,15 @@ const AdminBlog = () => {
     }
   };
 
-  const handleDelete = (id) => {
-    axios.delete(import.meta.env.VITE_API_URL + `/blog/blogs/${id}`)
-      .then(() => setBlogs(blogs.filter(blog => blog._id !== id)));
+  const handleDelete = async (id) => {
+
+    axios.get(import.meta.env.VITE_API_URL + `/blog/blogsdel/${id}`)
+    .then(() => setBlogs(blogs.filter(blog => blog._id !== id)))
+    .catch(error => console.error('Delete failed:', error));
   };
+
+
+
 
   const handleEdit = (blog) => {
     setEditingBlog(blog);
