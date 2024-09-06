@@ -37,7 +37,7 @@ const AdminBlog = () => {
   };
 
   const handleDelete = (id) => {
-    axios.delete(import.meta.env.VITE_API_URL + `/blogs/${id}`)
+    axios.delete(import.meta.env.VITE_API_URL + `/blog/blogs/${id}`)
       .then(() => setBlogs(blogs.filter(blog => blog._id !== id)));
   };
 
