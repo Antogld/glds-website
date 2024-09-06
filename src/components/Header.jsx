@@ -38,6 +38,7 @@ const Header = () => {
     { to: "/restruct", label: "Restruct" },
     { to: "/support", label: "Supporto" },
     { to: "/blog", label: "Blog" },
+    { to: "/manageblog", label: "manageBlog" },
   ]
 
   const logoSrc = isHomepage && !isScrolled ? logoTransparent : logo
