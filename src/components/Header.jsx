@@ -12,6 +12,7 @@ const Header = () => {
   const [showHeader, setShowHeader] = useState(true)
   const location = useLocation()
   const isHomepage = location.pathname === '/'
+  const isRestructPage = location.pathname === '/restruct';
 
   useEffect(() => {
     let lastScrollY = window.scrollY
@@ -40,14 +41,14 @@ const Header = () => {
     { to: "/blog", label: "Blog" },
   ]
 
-  const logoSrc = isHomepage && !isScrolled ? logoTransparent : logo
+  const logoSrc = isHomepage || isRestructPage && !isScrolled ? logoTransparent : logo
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300  ${isHomepage
-      ? isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+     || isRestructPage ? isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
       : 'bg-white shadow-md'
     }`}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 ">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex-shrink-0">
             <img
@@ -62,14 +63,14 @@ const Header = () => {
                 key={link.to}
                 to={link.to}
                 className={`text-lg font-medium transition-colors hover:text-primary ${
-                  isHomepage && !isScrolled ? 'text-white' : 'text-gray-700'
+                  isHomepage || isRestructPage && !isScrolled ? 'text-white' : 'text-gray-700'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
           </nav>
-          <div className="hidden md:block">
+          {/* <div className="hidden md:block">
             <Button className={`${
               isHomepage && !isScrolled
                 ? 'bg-white text-primary hover:bg-gray-100'
@@ -77,7 +78,7 @@ const Header = () => {
             }`}>
               Get started
             </Button>
-          </div>
+          </div> */}
           <div className="md:hidden">
             <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
               <SheetTrigger asChild className='pr-4'>
@@ -101,9 +102,9 @@ const Header = () => {
                       {link.label}
                     </Link>
                   ))}
-                  <Button className="mt-4 w-full">
+                  {/* <Button className="mt-4 w-full">
                     Get started
-                  </Button>
+                  </Button> */}
                 </nav>
               </SheetContent>
             </Sheet>

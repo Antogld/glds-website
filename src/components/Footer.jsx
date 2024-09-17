@@ -5,7 +5,7 @@ import logo from "../assets/logo.png"
 const Footer = () => {
   return <>
     <footer className="rounded-xl bg-gray-100">
-      <div className="container m-auto space-y-8 px-6 py-16 text-gray-600 md:px-12 lg:px-20">
+      <div className="container m-auto space-y-8 px-6 py-16 text-gray-600 ">
         <div className="flex flex-wrap items-center justify-between gap-4 border-b pb-8">
           <img
             width="180"
