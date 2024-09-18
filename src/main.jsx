@@ -13,6 +13,8 @@ import Restruct from './screens/Restruct.jsx';
 import Supporto from './screens/Support.jsx';
 import Blogs from './screens/Blogs.jsx';
 import AdminBlog from './screens/Manageblog.jsx';
+import Sostenibilita from './screens/Sostenibilita.jsx';
+import Eticaeconformita from './screens/Eticaeconformita.jsx';
 
 const Layout = () => {
   return (
@@ -51,6 +53,14 @@ const router = createBrowserRouter([
       {
         path: "/manageblog",
         element: <AdminBlog />
+      },
+      {
+        path: "/sostenibilita",
+        element: <Sostenibilita />
+      },
+      {
+        path: "/eticaeconformita",
+        element: <Eticaeconformita />
       }
     ],
   },

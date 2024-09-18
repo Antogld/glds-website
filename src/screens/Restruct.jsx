@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Check, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import heroVideo from '../assets/hero-video.mp4'
+import heroVideo from '../assets/restruct-video.mp4'
 import FAQs from '@/components/Faq'
 import NewsLetter from '@/components/NewsLetter'
 import ServicesSection from '@/components/Services'

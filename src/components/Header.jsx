@@ -9,25 +9,16 @@ import logo from "../assets/logo.png"
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [showHeader, setShowHeader] = useState(true)
   const location = useLocation()
   const isHomepage = location.pathname === '/'
-  const isRestructPage = location.pathname === '/restruct';
+  const isRestructPage = location.pathname === '/restruct'
+  const isSostenibilita = location.pathname === '/sostenibilita'
+  const isEticaeconformita = location.pathname === '/eticaeconformita'
+  const isBlog = location.pathname === '/blog'
 
   useEffect(() => {
-    let lastScrollY = window.scrollY
-
     const handleScroll = () => {
-      const currentScrollY = window.scrollY
-      if (currentScrollY > lastScrollY) {
-        // Scrolling down
-        setShowHeader(false)
-      } else {
-        // Scrolling up
-        setShowHeader(true)
-      }
-      lastScrollY = currentScrollY
-      setIsScrolled(currentScrollY > 0)
+      setIsScrolled(window.scrollY > 0)
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -37,18 +28,23 @@ const Header = () => {
   const navLinks = [
     { to: "/", label: "Home" },
     { to: "/restruct", label: "Restruct" },
+    { to: "/sostenibilita", label: "Sostenibilità" },
+    { to: "/eticaeconformita", label: "Etica e conformità" },
     { to: "/support", label: "Supporto" },
     { to: "/blog", label: "Blog" },
   ]
 
-  const logoSrc = isHomepage || isRestructPage && !isScrolled ? logoTransparent : logo
+  const logoSrc = (isHomepage || isRestructPage || isSostenibilita || isEticaeconformita) && !isScrolled ? logoTransparent : logo
+
+  const isActiveLink = (path) => location.pathname === path
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300  ${isHomepage
-     || isRestructPage ? isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
-      : 'bg-white shadow-md'
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isHomepage || isRestructPage || isSostenibilita || isEticaeconformita
+        ? isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+        : 'bg-white shadow-md'
     }`}>
-      <div className="container mx-auto px-4 ">
+      <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex-shrink-0">
             <img
@@ -62,30 +58,21 @@ const Header = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`text-lg font-medium transition-colors hover:text-primary ${
-                  isHomepage || isRestructPage && !isScrolled ? 'text-white' : 'text-gray-700'
-                }`}
+                className={`text-lg font-medium transition-colors hover:text-blue-600 ${
+                  (isHomepage || isRestructPage || isSostenibilita || isEticaeconformita) && !isScrolled ? 'text-white' : 'text-gray-700'
+                } ${isActiveLink(link.to) ? 'border-b-2 border-blue-600' : ''}`}
               >
                 {link.label}
               </Link>
             ))}
           </nav>
-          {/* <div className="hidden md:block">
-            <Button className={`${
-              isHomepage && !isScrolled
-                ? 'bg-white text-primary hover:bg-gray-100'
-                : 'bg-primary text-white hover:bg-primary-dark'
-            }`}>
-              Get started
-            </Button>
-          </div> */}
           <div className="md:hidden">
             <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
               <SheetTrigger asChild className='pr-4'>
                 <Button
                   variant="ghost"
                   size="icon"
-                  className={isHomepage && !isScrolled ? 'text-white' : 'text-gray-700 '}
+                  className={(isHomepage || isRestructPage || isSostenibilita || isEticaeconformita) && !isScrolled ? 'text-white' : 'text-gray-700'}
                 >
                   {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                 </Button>
@@ -96,15 +83,14 @@ const Header = () => {
                     <Link
                       key={link.to}
                       to={link.to}
-                      className="text-lg font-medium text-gray-700 hover:text-primary"
+                      className={`text-lg font-medium text-gray-700 hover:text-blue-600 ${
+                        isActiveLink(link.to) ? 'text-blue-600 font-bold' : ''
+                      }`}
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {link.label}
                     </Link>
                   ))}
-                  {/* <Button className="mt-4 w-full">
-                    Get started
-                  </Button> */}
                 </nav>
               </SheetContent>
             </Sheet>
