@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet'
 import { Button } from './ui/button'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import logoTransparent from "../assets/logo-transparent.png"
 import logo from "../assets/logo.png"
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isSupportoOpen, setIsSupportoOpen] = useState(false)
+  const [isAziendaOpen, setIsAziendaOpen] = useState(false)
   const location = useLocation()
   const isHomepage = location.pathname === '/'
   const isRestructPage = location.pathname === '/restruct'
@@ -30,7 +32,6 @@ const Header = () => {
     { to: "/restruct", label: "Restruct" },
     { to: "/sostenibilita", label: "Sostenibilità" },
     { to: "/eticaeconformita", label: "Etica e conformità" },
-    { to: "/support", label: "Supporto" },
     { to: "/blog", label: "Blog" },
   ]
 
@@ -65,7 +66,68 @@ const Header = () => {
                 {link.label}
               </Link>
             ))}
+            <div 
+              className="relative"
+              onMouseEnter={() => setIsAziendaOpen(true)}
+              onMouseLeave={() => setIsAziendaOpen(false)}
+            >
+              <button 
+                className={`text-lg font-medium transition-colors hover:text-blue-600 flex items-center ${
+                  (isHomepage || isRestructPage || isSostenibilita || isEticaeconformita) && !isScrolled ? 'text-white' : 'text-gray-700'
+                }`}
+              >
+                Azienda
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+              {isAziendaOpen && (
+                <div className="absolute left-0 mt-2 w-[600px] bg-white shadow-lg rounded-md overflow-hidden">
+                  <div className="grid grid-cols-3 gap-4 p-6">
+                    <div>
+                      <h3 className="font-bold mb-2">Chi Siamo</h3>
+                      {/* Add links or content for Chi Siamo */}
+                    </div>
+                    <div>
+                      <h3 className="font-bold mb-2">Carriere</h3>
+                      {/* Add links or content for Carriere */}
+                    </div>
+                    <div>
+                      <h3 className="font-bold mb-2">Contatti</h3>
+                      {/* Add links or content for Contatti */}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div 
+              className="relative"
+              onMouseEnter={() => setIsSupportoOpen(true)}
+              onMouseLeave={() => setIsSupportoOpen(false)}
+            >
+              <button 
+                className={`text-lg font-medium transition-colors hover:text-blue-600 flex items-center ${
+                  (isHomepage || isRestructPage || isSostenibilita || isEticaeconformita) && !isScrolled ? 'text-white' : 'text-gray-700'
+                }`}
+              >
+                Supporto
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+              {isSupportoOpen && (
+                <div className="absolute left-0 mt-2 w-[600px] bg-white shadow-lg rounded-md overflow-hidden">
+                  <div className="grid grid-cols-3 gap-4 p-6">
+                    <div>
+                      <h3 className="font-bold mb-2">Start Here</h3>
+                      {/* Add links or content for Start Here */}
+                    </div>
+                    <div>
+                      <h3 className="font-bold mb-2">Skills and Certifications</h3>
+                      {/* Add links or content for Skills and Certifications */}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           </nav>
+          <div className=""></div>
           <div className="md:hidden">
             <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
               <SheetTrigger asChild className='pr-4'>
@@ -91,6 +153,20 @@ const Header = () => {
                       {link.label}
                     </Link>
                   ))}
+                  <Link
+                    to="/azienda"
+                    className="text-lg font-medium text-gray-700 hover:text-blue-600"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Azienda
+                  </Link>
+                  <Link
+                    to="/supporto"
+                    className="text-lg font-medium text-gray-700 hover:text-blue-600"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Supporto
+                  </Link>
                 </nav>
               </SheetContent>
             </Sheet>

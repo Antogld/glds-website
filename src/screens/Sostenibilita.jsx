@@ -1,5 +1,5 @@
 import React from 'react';
-import heroVideo from '../assets/restruct-video.mp4';
+import heroVideo from '../assets/next-video.mp4';
 import aboutImg from '../assets/leaf.png';
 import footImg from '../assets/foot.png';
 import ecoPlugImg from '../assets/eco-plug.png'; // Make sure to add this image to your assets
