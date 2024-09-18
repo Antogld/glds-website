@@ -26,9 +26,16 @@ const FeatureRow = ({ feature, tiers }) => (
   <tr className="border-b">
     <td className="py-2">{feature}</td>
     {tiers.map((value, index) => (
-      <td key={index} className="text-center py-2">
+      <td key={index} className="text-center py-4">
         {typeof value === 'boolean' ? (
           value ? <Check className="inline h-5 w-5 text-blue-500" /> : <X className="inline h-5 w-5 text-red-500" />
+        ) : typeof value === 'string' && value.includes('\n') ? (
+          value.split('\n').map((line, i) => (
+            <React.Fragment key={i}>
+              {line}
+              {i < value.split('\n').length - 1 && <br />}
+            </React.Fragment>
+          ))
         ) : (
           value
         )}
@@ -55,8 +62,8 @@ const Restruct = () => {
     { name: "Movimenti", tiers: ["100/mese", "300/mese", "Unlimited", "Unlimited"] },
     { name: "Gestione clienti", tiers: [50, 200, 500, "Unlimited"] },
     { name: "Gestione fornitori", tiers: [25, 100, 300, "Unlimited"] },
-    { name: "Gestione flotta", tiers: [false, "10 vehicles", "50 vehicles", "Unlimited"] },
-    { name: "Magazzino", tiers: ["1 magazzino 100 prodotti", "3 magazzini 500 prodotti", "5 magazzini 1000 prodotti", "Unlimited"] },
+    { name: "Gestione flotta", tiers: [false, "10 Veicoli", "50 Veicoli", "Unlimited"] },
+    { name: "Magazzino", tiers: ["1 magazzino\n100 prodotti", "3 magazzini\n500 prodotti", "5 magazzini\n1000 prodotti", "Unlimited"] },
     { name: "DDT", tiers: ["20/mese", "50/mese", "200/mese", "Unlimited"] },
     { name: "Computi metrici", tiers: [false, false, true, true] },
     { name: "Cantieri", tiers: [3, 10, 70, "Unlimited"] },
@@ -68,7 +75,6 @@ const Restruct = () => {
     { name: "Supporto", tiers: ["Standard", "Standard", "Dedicato", "Dedicato 24/7"] },
     { name: "Accesso esclusivo a nuove funzionalità", tiers: [false, false, false, true] },
   ]
-
   return (
     <>
       <section className="relative overflow-hidden h-[60vh] sm:h-[70vh] bg-slate-900">
@@ -138,11 +144,11 @@ const Restruct = () => {
             <table className="w-full">
               <thead>
                 <tr className="bg-gray-100">
-                  <th className="text-left py-2 px-4">Confronta i piani</th>
-                  <th className="py-2 px-4">Base</th>
-                  <th className="py-2 px-4">Standard</th>
-                  <th className="py-2 px-4">Professionale</th>
-                  <th className="py-2 px-4">Enterprise</th>
+                  <th className="text-left py-2 px-4 text-xl">Confronta i piani</th>
+                  <th className="py-2 px-4 text-xl">Base</th>
+                  <th className="py-2 px-4 text-xl">Standard</th>
+                  <th className="py-2 px-4 text-xl">Professionale</th>
+                  <th className="py-2 px-4 text-xl">Enterprise</th>
                 </tr>
               </thead>
               <tbody>
