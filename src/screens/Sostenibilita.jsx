@@ -32,16 +32,6 @@ const Sostenibilita = () => {
             <p className="mt-6 text-xl text-white text-opacity-80 max-w-2xl">
               Presso Galdiero Systems, crediamo fermamente nell'importanza di operare in modo responsabile verso l'ambiente e la comunità. Siamo impegnati a integrare pratiche sostenibili in ogni aspetto del nostro business, guidati dalla consapevolezza del nostro impatto sull'ambiente e dalla volontà di contribuire a un mondo più verde e equo.
             </p>
-            {/* Uncomment if you want to add buttons
-            <div className="mt-10 space-x-4">
-              <Button className="bg-blue-500 text-white hover:bg-blue-600 transition duration-300">
-                Inizia Ora
-              </Button>
-              <Button variant="outline" className="text-white border-white hover:bg-white hover:text-blue-500 transition duration-300">
-                Contatta Vendite
-              </Button>
-            </div>
-            */}
           </div>
         </div>
       </section>
