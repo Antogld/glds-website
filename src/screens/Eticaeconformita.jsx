@@ -38,7 +38,6 @@ const Eticaeconformita = () => {
           </div>
         </div>
       </section>
-      <LogoSection />
       <div className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <section id="principi" className="py-16 border-b border-gray-200">

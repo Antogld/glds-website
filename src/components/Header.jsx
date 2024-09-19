@@ -80,19 +80,15 @@ const Header = () => {
                 <ChevronDown className="ml-1 h-4 w-4" />
               </button>
               {isAziendaOpen && (
-                <div className="absolute left-0 mt-2 w-[600px] bg-white shadow-lg rounded-md overflow-hidden">
-                  <div className="grid grid-cols-3 gap-4 p-6">
-                    <div>
-                      <h3 className="font-bold mb-2">Chi Siamo</h3>
+                <div className="absolute left-0 mt-2 w-[450px] bg-white shadow-lg rounded-md overflow-hidden">
+                  <div className="grid grid-cols-2 gap-4 p-6">
+                    <div className='border-b'>
+                      <h3 className="font-medium mb-2">Su di noi</h3>
                       {/* Add links or content for Chi Siamo */}
                     </div>
-                    <div>
-                      <h3 className="font-bold mb-2">Carriere</h3>
+                    <div className='border-b'>
+                      <h3 className="font-medium mb-2">Impegno aziendale</h3>
                       {/* Add links or content for Carriere */}
-                    </div>
-                    <div>
-                      <h3 className="font-bold mb-2">Contatti</h3>
-                      {/* Add links or content for Contatti */}
                     </div>
                   </div>
                 </div>
@@ -112,14 +108,14 @@ const Header = () => {
                 <ChevronDown className="ml-1 h-4 w-4" />
               </button>
               {isSupportoOpen && (
-                <div className="absolute left-0 mt-2 w-[600px] bg-white shadow-lg rounded-md overflow-hidden">
-                  <div className="grid grid-cols-3 gap-4 p-6">
-                    <div>
-                      <h3 className="font-bold mb-2">Start Here</h3>
+                <div className="absolute left-0 mt-2 w-[450px] bg-white shadow-lg rounded-md overflow-hidden">
+                  <div className="grid grid-cols-2 gap-4 p-6">
+                    <div className='border-b'>
+                      <h3 className="font-medium mb-2">Start Here</h3>
                       {/* Add links or content for Start Here */}
                     </div>
-                    <div>
-                      <h3 className="font-bold mb-2">Skills and Certifications</h3>
+                    <div className='border-b'>
+                      <h3 className="font-medium mb-2">Skills and Certifications</h3>
                       {/* Add links or content for Skills and Certifications */}
                     </div>
                   </div>
@@ -146,7 +142,7 @@ const Header = () => {
                       key={link.to}
                       to={link.to}
                       className={`text-lg font-medium text-gray-700 hover:text-blue-600 ${
-                        isActiveLink(link.to) ? 'text-blue-600 font-bold' : ''
+                        isActiveLink(link.to) ? 'text-blue-600 font-medium' : ''
                       }`}
                       onClick={() => setIsMenuOpen(false)}
                     >
