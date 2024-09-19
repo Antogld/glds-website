@@ -83,11 +83,11 @@ const Header = () => {
                 <div className="absolute left-0 mt-2 w-[450px] bg-white shadow-lg rounded-md overflow-hidden">
                   <div className="grid grid-cols-2 gap-4 p-6">
                     <div className='border-b'>
-                      <h3 className="font-medium mb-2">Su di noi</h3>
+                      <h3 className="font-semibold mb-2">Su di noi</h3>
                       {/* Add links or content for Chi Siamo */}
                     </div>
                     <div className='border-b'>
-                      <h3 className="font-medium mb-2">Impegno aziendale</h3>
+                      <h3 className="font-semibold mb-2">Impegno aziendale</h3>
                       {/* Add links or content for Carriere */}
                     </div>
                   </div>
@@ -108,14 +108,14 @@ const Header = () => {
                 <ChevronDown className="ml-1 h-4 w-4" />
               </button>
               {isSupportoOpen && (
-                <div className="absolute left-0 mt-2 w-[450px] bg-white shadow-lg rounded-md overflow-hidden">
+                <div className="absolute left-0 mt-2 w-[460px] bg-white shadow-lg rounded-md overflow-hidden">
                   <div className="grid grid-cols-2 gap-4 p-6">
                     <div className='border-b'>
-                      <h3 className="font-medium mb-2">Start Here</h3>
+                      <h3 className="font-semibold mb-2">Start Here</h3>
                       {/* Add links or content for Start Here */}
                     </div>
                     <div className='border-b'>
-                      <h3 className="font-medium mb-2">Skills and Certifications</h3>
+                      <h3 className="font-semibold mb-2">Skills and Certifications</h3>
                       {/* Add links or content for Skills and Certifications */}
                     </div>
                   </div>
