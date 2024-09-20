@@ -15,6 +15,7 @@ import Blogs from './screens/Blogs.jsx';
 import AdminBlog from './screens/Manageblog.jsx';
 import Sostenibilita from './screens/Sostenibilita.jsx';
 import Eticaeconformita from './screens/Eticaeconformita.jsx';
+import InnovationHeroSection from './screens/Chisiamo.jsx';
 
 const Layout = () => {
   return (
@@ -61,7 +62,11 @@ const router = createBrowserRouter([
       {
         path: "/eticaeconformita",
         element: <Eticaeconformita />
-      }
+      },
+      {
+        path: "/chisiamo",
+        element: <InnovationHeroSection />
+      },
     ],
   },
 ]);

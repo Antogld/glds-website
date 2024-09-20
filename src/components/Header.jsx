@@ -31,6 +31,7 @@ const Header = () => {
     { to: "/", label: "Home" },
     { to: "/restruct", label: "Restruct" },
     { to: "/blog", label: "Blog" },
+    { to: "/chisiamo", label: "Chi Siamo" },
   ]
 
   const logoSrc = (isHomepage || isRestructPage || isSostenibilita || isEticaeconformita) && !isScrolled ? logoTransparent : logo
@@ -51,8 +52,8 @@ const Header = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isHomepage || isRestructPage || isSostenibilita || isEticaeconformita
-        ? isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
-        : 'bg-white shadow-md'
+        ? isScrolled ? 'bg-white border-b' : 'bg-transparent'
+        : 'bg-white border-b'
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
