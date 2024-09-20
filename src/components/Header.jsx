@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet'
 import { Button } from './ui/button'
@@ -9,8 +9,8 @@ import logo from "../assets/logo.png"
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isSupportoOpen, setIsSupportoOpen] = useState(false)
-  const [isAziendaOpen, setIsAziendaOpen] = useState(false)
+  const [activeMenu, setActiveMenu] = useState(null)
+  const menuTimeoutRef = useRef(null)
   const location = useLocation()
   const isHomepage = location.pathname === '/'
   const isRestructPage = location.pathname === '/restruct'
@@ -30,14 +30,23 @@ const Header = () => {
   const navLinks = [
     { to: "/", label: "Home" },
     { to: "/restruct", label: "Restruct" },
-    { to: "/sostenibilita", label: "Sostenibilità" },
-    { to: "/eticaeconformita", label: "Etica e conformità" },
     { to: "/blog", label: "Blog" },
   ]
 
   const logoSrc = (isHomepage || isRestructPage || isSostenibilita || isEticaeconformita) && !isScrolled ? logoTransparent : logo
 
   const isActiveLink = (path) => location.pathname === path
+
+  const handleMenuEnter = (menu) => {
+    if (menuTimeoutRef.current) clearTimeout(menuTimeoutRef.current)
+    setActiveMenu(menu)
+  }
+
+  const handleMenuLeave = () => {
+    menuTimeoutRef.current = setTimeout(() => {
+      setActiveMenu(null)
+    }, 300) // 300ms delay before closing the menu
+  }
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -54,7 +63,7 @@ const Header = () => {
               className="h-8 w-auto"
             />
           </Link>
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-8 relative">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
@@ -66,12 +75,14 @@ const Header = () => {
                 {link.label}
               </Link>
             ))}
+
+            {/* Azienda dropdown */}
             <div 
               className="relative"
-              onMouseEnter={() => setIsAziendaOpen(true)}
-              onMouseLeave={() => setIsAziendaOpen(false)}
+              onMouseEnter={() => handleMenuEnter('azienda')}
+              onMouseLeave={handleMenuLeave}
             >
-              <button 
+              <button
                 className={`text-lg font-medium transition-colors hover:text-blue-600 flex items-center ${
                   (isHomepage || isRestructPage || isSostenibilita || isEticaeconformita) && !isScrolled ? 'text-white' : 'text-gray-700'
                 }`}
@@ -79,27 +90,48 @@ const Header = () => {
                 Azienda
                 <ChevronDown className="ml-1 h-4 w-4" />
               </button>
-              {isAziendaOpen && (
-                <div className="absolute left-0 mt-2 w-[450px] bg-white shadow-lg rounded-md overflow-hidden">
-                  <div className="grid grid-cols-2 gap-4 p-6">
-                    <div className='border-b'>
-                      <h3 className="font-semibold mb-2">Su di noi</h3>
-                      {/* Add links or content for Chi Siamo */}
-                    </div>
-                    <div className='border-b'>
-                      <h3 className="font-semibold mb-2">Impegno aziendale</h3>
-                      {/* Add links or content for Carriere */}
+              {activeMenu === 'azienda' && (
+                <div className="absolute top-full right-0 bg-white shadow-lg rounded-md overflow-hidden mt-2 w-[450px]">
+                  <div className="p-4">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <h3 className="font-semibold mb-2 border-b">Su di noi</h3>
+                        {/* Add links or content for Chi Siamo */}
+                      </div>
+                      <div>
+                        <h3 className="font-semibold mb-2 border-b">Impegno aziendale</h3>
+                        <ul>
+                          <li className="mb-2">
+                            <Link
+                              to="/sostenibilita"
+                              className="hover:text-blue-600 transition-colors duration-200"
+                            >
+                              Sostenibilità
+                            </Link>
+                          </li>
+                          <li className="mb-2">
+                            <Link
+                              to="/eticaeconformita"
+                              className="hover:text-blue-600 transition-colors duration-200"
+                            >
+                              Etica e conformità
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
               )}
             </div>
+
+            {/* Supporto dropdown */}
             <div 
               className="relative"
-              onMouseEnter={() => setIsSupportoOpen(true)}
-              onMouseLeave={() => setIsSupportoOpen(false)}
+              onMouseEnter={() => handleMenuEnter('supporto')}
+              onMouseLeave={handleMenuLeave}
             >
-              <button 
+              <button
                 className={`text-lg font-medium transition-colors hover:text-blue-600 flex items-center ${
                   (isHomepage || isRestructPage || isSostenibilita || isEticaeconformita) && !isScrolled ? 'text-white' : 'text-gray-700'
                 }`}
@@ -107,23 +139,35 @@ const Header = () => {
                 Supporto
                 <ChevronDown className="ml-1 h-4 w-4" />
               </button>
-              {isSupportoOpen && (
-                <div className="absolute left-0 mt-2 w-[460px] bg-white shadow-lg rounded-md overflow-hidden">
-                  <div className="grid grid-cols-2 gap-4 p-6">
-                    <div className='border-b'>
-                      <h3 className="font-semibold mb-2">Start Here</h3>
-                      {/* Add links or content for Start Here */}
-                    </div>
-                    <div className='border-b'>
-                      <h3 className="font-semibold mb-2">Skills and Certifications</h3>
-                      {/* Add links or content for Skills and Certifications */}
+              {activeMenu === 'supporto' && (
+                <div className="absolute top-full right-0 bg-white shadow-lg rounded-md overflow-hidden mt-2 w-[450px]">
+                  <div className="p-4">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <h3 className="font-semibold mb-2 border-b">Parla con noi</h3>
+                        <ul>
+                          <li className="mb-2">
+                            <Link
+                              to="/support"
+                              className="hover:text-blue-600 transition-colors duration-200"
+                            >
+                              Contattaci
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h3 className="font-semibold mb-2 border-b">Skills and Certifications</h3>
+                        {/* Add links or content for Skills and Certifications */}
+                      </div>
                     </div>
                   </div>
                 </div>
               )}
             </div>
           </nav>
-          <div className=""></div>
+
+          {/* Mobile Menu */}
           <div className="md:hidden">
             <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
               <SheetTrigger asChild className='pr-4'>
@@ -141,9 +185,7 @@ const Header = () => {
                     <Link
                       key={link.to}
                       to={link.to}
-                      className={`text-lg font-medium text-gray-700 hover:text-blue-600 ${
-                        isActiveLink(link.to) ? 'text-blue-600 font-medium' : ''
-                      }`}
+                      className={`text-lg font-medium text-gray-700 hover:text-blue-600 ${isActiveLink(link.to) ? 'text-blue-600 font-medium' : ''}`}
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {link.label}
