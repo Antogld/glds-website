@@ -20,7 +20,7 @@ const EditBlog = () => {
 
   const fetchBlog = async () => {
     try {
-      const response = await fetch(`https://glds-website-backend-1.onrender.com/api/blogs/${slug}`);
+      const response = await fetch(`  https://glds-website-backend-1.onrender.com/api/blogs/${slug}`);
       const data = await response.json();
       setTitle(data.title);
       setContent(data.content);
@@ -39,7 +39,7 @@ const EditBlog = () => {
     if (image) formData.append('image', image);
 
     try {
-      const response = await fetch(`https://glds-website-backend-1.onrender.com/api/blogs/${slug}`, {
+      const response = await fetch(`  https://glds-website-backend-1.onrender.com/api/blogs/${slug}`, {
         method: 'PATCH',
         body: formData,
       });

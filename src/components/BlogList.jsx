@@ -16,7 +16,7 @@ const BlogList = () => {
   const fetchBlogs = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch('https://glds-website-backend-1.onrender.com/api/blogs');
+      const response = await fetch('  https://glds-website-backend-1.onrender.com/api/blogs');
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -62,7 +62,7 @@ const BlogList = () => {
               <div key={blog._id} className="group p-6 sm:p-8 rounded-3xl bg-white border border-gray-100 dark:shadow-none dark:border-gray-700 dark:bg-gray-800 bg-opacity-50 shadow-gray-600/10">
                 <div className="relative overflow-hidden rounded-xl">
                   <img
-                    src={blog.image ? `https://glds-website-backend-1.onrender.com${blog.image}` : '/api/placeholder/1000/667'}
+                    src={blog.image ? `  https://glds-website-backend-1.onrender.com${blog.image}` : '/api/placeholder/1000/667'}
                     alt={blog.title}
                     className="h-64 w-full object-cover object-top transition duration-500 group-hover:scale-105"
                   />

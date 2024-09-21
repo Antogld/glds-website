@@ -15,7 +15,7 @@ const BlogPost = () => {
 
   const fetchBlog = async () => {
     try {
-      const response = await fetch(`https://glds-website-backend-1.onrender.com/api/blogs/${slug}`);
+      const response = await fetch(`  https://glds-website-backend-1.onrender.com/api/blogs/${slug}`);
       const data = await response.json();
       setBlog(data);
     } catch (error) {
@@ -30,7 +30,7 @@ const BlogPost = () => {
   const handleDelete = async () => {
     if (window.confirm('Are you sure you want to delete this blog post?')) {
       try {
-        const response = await fetch(`https://glds-website-backend-1.onrender.com/api/blogs/${slug}`, {
+        const response = await fetch(`  https://glds-website-backend-1.onrender.com/api/blogs/${slug}`, {
           method: 'DELETE',
         });
         if (response.ok) {
@@ -50,7 +50,7 @@ const BlogPost = () => {
         <CardHeader>
           <CardTitle className="text-3xl font-bold my-6">{blog.title}</CardTitle>
           {blog.image && (
-            <img src={`https://glds-website-backend-1.onrender.com${blog.image}`} alt={blog.title} className="w-full h-64 object-cover rounded-t-lg" />
+            <img src={`  https://glds-website-backend-1.onrender.com${blog.image}`} alt={blog.title} className="w-full h-64 object-cover rounded-t-lg" />
           )}
 
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">By {blog.author}</p>

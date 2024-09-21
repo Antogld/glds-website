@@ -22,7 +22,7 @@ const CreateBlog = () => {
     if (image) formData.append('image', image);
 
     try {
-      const response = await fetch('https://glds-website-backend-1.onrender.com/api/blogs', {
+      const response = await fetch('  https://glds-website-backend-1.onrender.com/api/blogs', {
         method: 'POST',
         body: formData,
       });
