@@ -9,7 +9,6 @@ import 'react-quill/dist/quill.snow.css';
 const CreateBlog = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [author, setAuthor] = useState('');
   const [image, setImage] = useState(null);
   const navigate = useNavigate();
 
@@ -18,7 +17,6 @@ const CreateBlog = () => {
     const formData = new FormData();
     formData.append('title', title);
     formData.append('content', content);
-    formData.append('author', author);
     if (image) formData.append('image', image);
 
     try {
@@ -49,17 +47,6 @@ const CreateBlog = () => {
                 placeholder="Title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                required
-                className="mt-1"
-              />
-            </div>
-            <div>
-              <label htmlFor="author" className="block text-sm font-medium text-gray-700 dark:text-gray-200">Author</label>
-              <Input
-                id="author"
-                placeholder="Author"
-                value={author}
-                onChange={(e) => setAuthor(e.target.value)}
                 required
                 className="mt-1"
               />
