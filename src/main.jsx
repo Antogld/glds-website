@@ -16,6 +16,10 @@ import AdminBlog from './screens/Manageblog.jsx';
 import Sostenibilita from './screens/Sostenibilita.jsx';
 import Eticaeconformita from './screens/Eticaeconformita.jsx';
 import InnovationHeroSection from './screens/Chisiamo.jsx';
+import BlogList from './components/BlogList.jsx';
+import BlogPost from './components/BlogPost.jsx';
+import CreateBlog from './components/CreateBlog.jsx';
+import EditBlog from './components/EditBlog.jsx';
 
 const Layout = () => {
   return (
@@ -38,7 +42,6 @@ const router = createBrowserRouter([
         path: "/",
         element: <App />,
       },
-      // Add other routes here as needed
       {
         path: "/restruct",
         element: <Restruct />,
@@ -49,7 +52,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/blog",
-        element: <Blogs />
+        element: <BlogList />
+      },
+      {
+        path: "/blog/:slug",
+        element: <BlogPost />
+      },
+      {
+        path: "/blog/create",
+        element: <CreateBlog />
+      },
+      {
+        path: "/blog/edit/:slug",
+        element: <EditBlog />
       },
       {
         path: "/manageblog",
