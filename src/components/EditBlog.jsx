@@ -5,12 +5,14 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import newRequest from '@/utils/newRequest';
 
 const EditBlog = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [author, setAuthor] = useState('');
   const [image, setImage] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const { slug } = useParams();
   const navigate = useNavigate();
 
@@ -20,36 +22,48 @@ const EditBlog = () => {
 
   const fetchBlog = async () => {
     try {
-      const response = await fetch(`  https://glds-website-backend-1.onrender.com/api/blogs/${slug}`);
-      const data = await response.json();
-      setTitle(data.title);
-      setContent(data.content);
-      setAuthor(data.author);
+      setLoading(true);
+      const response = await newRequest.get(`/api/blogs/${slug}`);
+      const data = response.data;
+      if (data) {
+        setTitle(data.title || '');
+        setContent(data.content || '');
+      } else {
+        setError('Blog post not found');
+      }
     } catch (error) {
       console.error('Error fetching blog:', error);
+      setError('Failed to fetch blog post. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null);
     const formData = new FormData();
     formData.append('title', title);
     formData.append('content', content);
-    formData.append('author', author);
     if (image) formData.append('image', image);
 
     try {
-      const response = await fetch(`  https://glds-website-backend-1.onrender.com/api/blogs/${slug}`, {
-        method: 'PATCH',
-        body: formData,
+      const response = await newRequest.patch(`/api/blogs/${slug}`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
       });
-      if (response.ok) {
-        navigate(`/blog/${slug}`);
+      if (response.data && response.data.slug) {
+        navigate(`/blog/${response.data.slug}`);
+      } else {
+        setError('Failed to update blog post. Please try again.');
       }
     } catch (error) {
       console.error('Error updating blog:', error);
+      setError(error.response?.data?.message || 'Failed to update blog post. Please try again.');
     }
   };
+
+  if (loading) return <div className="container mx-auto px-4 py-8">Loading...</div>;
+  if (error) return <div className="container mx-auto px-4 py-8">Error: {error}</div>;
 
   return (
     <div className="container mx-auto px-4 py-32">
@@ -65,16 +79,6 @@ const EditBlog = () => {
                 id="title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                required
-                className="mt-1"
-              />
-            </div>
-            <div>
-              <label htmlFor="author" className="block text-sm font-medium text-gray-700 dark:text-gray-200">Author</label>
-              <Input
-                id="author"
-                value={author}
-                onChange={(e) => setAuthor(e.target.value)}
                 required
                 className="mt-1"
               />
@@ -96,6 +100,7 @@ const EditBlog = () => {
                 className="mt-1"
               />
             </div>
+            {error && <p className="text-red-500">{error}</p>}
             <Button type="submit">Update Post</Button>
           </form>
         </CardContent>

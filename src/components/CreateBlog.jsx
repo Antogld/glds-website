@@ -5,12 +5,15 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import newRequest from '@/utils/newRequest';
 
 const CreateBlog = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [image, setImage] = useState(null);
   const navigate = useNavigate();
+  const [error, setError] = useState('');
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,15 +23,28 @@ const CreateBlog = () => {
     if (image) formData.append('image', image);
 
     try {
-      const response = await fetch('  https://glds-website-backend-1.onrender.com/api/blogs', {
-        method: 'POST',
-        body: formData,
+      await newRequest.post('/api/blogs', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
       });
-      if (response.ok) {
-        navigate('/blog');
-      }
+      navigate('/blog');
     } catch (error) {
       console.error('Error creating blog:', error);
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        setError(error.response.data.message || 'Error creating blog. Please try again.');
+        if (error.response.status === 403) {
+          setError('You are not authorized to create a blog. Please log in again.');
+          // Optionally, you can redirect to the login page here
+          // navigate('/login');
+        }
+      } else if (error.request) {
+        // The request was made but no response was received
+        setError('No response from server. Please check your connection.');
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        setError('An error occurred. Please try again.');
+      }
     }
   };
 

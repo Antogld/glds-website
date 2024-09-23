@@ -5,7 +5,8 @@ import './index.css'
 import {
   createBrowserRouter,
   RouterProvider,
-  Outlet
+  Outlet,
+  Navigate
 } from "react-router-dom";
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
@@ -20,6 +21,9 @@ import BlogList from './components/BlogList.jsx';
 import BlogPost from './components/BlogPost.jsx';
 import CreateBlog from './components/CreateBlog.jsx';
 import EditBlog from './components/EditBlog.jsx';
+import AdminLogin from './components/admin/AdminLogin.jsx';
+import AdminDashboard from './components/admin/AdminDashboard.jsx';
+import Cookies from 'js-cookie';
 
 const Layout = () => {
   return (
@@ -31,6 +35,11 @@ const Layout = () => {
       <Footer />
     </>
   );
+};
+
+const ProtectedRoute = ({ children }) => {
+  const adminToken = Cookies.get('adminToken');
+  return adminToken ? children : <Navigate to="/login" replace />;
 };
 
 const router = createBrowserRouter([
@@ -59,18 +68,6 @@ const router = createBrowserRouter([
         element: <BlogPost />
       },
       {
-        path: "/blog/create",
-        element: <CreateBlog />
-      },
-      {
-        path: "/blog/edit/:slug",
-        element: <EditBlog />
-      },
-      {
-        path: "/manageblog",
-        element: <AdminBlog />
-      },
-      {
         path: "/sostenibilita",
         element: <Sostenibilita />
       },
@@ -81,6 +78,27 @@ const router = createBrowserRouter([
       {
         path: "/chisiamo",
         element: <InnovationHeroSection />
+      },
+      // Admin routes
+      {
+        path: "/login",
+        element: <AdminLogin />
+      },
+      {
+        path: "/admin",
+        element: <ProtectedRoute><AdminDashboard /></ProtectedRoute>
+      },
+      {
+        path: "/blog/create",
+        element: <ProtectedRoute><CreateBlog /></ProtectedRoute>
+      },
+      {
+        path: "/blog/edit/:slug",
+        element: <ProtectedRoute><EditBlog /></ProtectedRoute>
+      },
+      {
+        path: "/manageblog",
+        element: <ProtectedRoute><AdminBlog /></ProtectedRoute>
       },
     ],
   },

@@ -5,6 +5,7 @@ import { Button } from './ui/button'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import logoTransparent from "../assets/logo-transparent.png"
 import logo from "../assets/logo.png"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -17,6 +18,7 @@ const Header = () => {
   const isSostenibilita = location.pathname === '/sostenibilita'
   const isEticaeconformita = location.pathname === '/eticaeconformita'
   const isBlog = location.pathname === '/blog'
+  const Chisiamo = location.pathname === '/chisiamo'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,11 +32,9 @@ const Header = () => {
   const navLinks = [
     { to: "/", label: "Home" },
     { to: "/restruct", label: "Restruct" },
-    { to: "/blog", label: "Blog" },
-    { to: "/chisiamo", label: "Chi Siamo" },
   ]
 
-  const logoSrc = (isHomepage || isRestructPage || isSostenibilita || isEticaeconformita) && !isScrolled ? logoTransparent : logo
+  const logoSrc = (isHomepage || isRestructPage || isSostenibilita || isEticaeconformita || Chisiamo) && !isScrolled ? logoTransparent : logo
 
   const isActiveLink = (path) => location.pathname === path
 
@@ -50,11 +50,10 @@ const Header = () => {
   }
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isHomepage || isRestructPage || isSostenibilita || isEticaeconformita
-        ? isScrolled ? 'bg-white border-b' : 'bg-transparent'
-        : 'bg-white border-b'
-    }`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isHomepage || isRestructPage || isSostenibilita || isEticaeconformita || Chisiamo
+      ? isScrolled ? 'bg-white shadow' : 'bg-transparent'
+      : 'bg-white'
+      }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex-shrink-0">
@@ -69,35 +68,38 @@ const Header = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`text-lg font-medium transition-colors hover:text-blue-600 ${
-                  (isHomepage || isRestructPage || isSostenibilita || isEticaeconformita) && !isScrolled ? 'text-white' : 'text-gray-700'
-                } ${isActiveLink(link.to) ? 'border-b-2 border-blue-600' : ''}`}
+                className={`text-lg font-medium transition-colors hover:text-blue-600 ${(isHomepage || isRestructPage || isSostenibilita || isEticaeconformita || Chisiamo) && !isScrolled ? 'text-white' : 'text-gray-700'
+                  } ${isActiveLink(link.to) ? 'border-b-2 border-blue-600' : ''}`}
               >
                 {link.label}
               </Link>
             ))}
 
             {/* Azienda dropdown */}
-            <div 
+            <div
               className="relative"
               onMouseEnter={() => handleMenuEnter('azienda')}
               onMouseLeave={handleMenuLeave}
             >
               <button
-                className={`text-lg font-medium transition-colors hover:text-blue-600 flex items-center ${
-                  (isHomepage || isRestructPage || isSostenibilita || isEticaeconformita) && !isScrolled ? 'text-white' : 'text-gray-700'
-                }`}
+                className={`text-lg font-medium transition-colors hover:text-blue-600 flex items-center ${(isHomepage || isRestructPage || isSostenibilita || isEticaeconformita || Chisiamo) && !isScrolled ? 'text-white' : 'text-gray-700'
+                  }`}
               >
                 Azienda
                 <ChevronDown className="ml-1 h-4 w-4" />
               </button>
               {activeMenu === 'azienda' && (
-                <div className="absolute top-full right-0 bg-white shadow-lg rounded-md overflow-hidden mt-2 w-[450px]">
+                <div className="absolute top-full right-0 bg-white shadow-lg rounded-md overflow-hidden mt-2 w-[600px]">
                   <div className="p-4">
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-3 gap-4">
                       <div>
                         <h3 className="font-semibold mb-2 border-b">Su di noi</h3>
-                        {/* Add links or content for Chi Siamo */}
+                        <Link
+                          to="/chisiamo"
+                          className="hover:text-blue-600 transition-colors duration-200"
+                        >
+                          Chi Siamo
+                        </Link>
                       </div>
                       <div>
                         <h3 className="font-semibold mb-2 border-b">Impegno aziendale</h3>
@@ -120,6 +122,15 @@ const Header = () => {
                           </li>
                         </ul>
                       </div>
+                      <div>
+                        <h3 className="font-semibold mb-2 border-b">News</h3>
+                        <Link
+                          to="/blog"
+                          className="hover:text-blue-600 transition-colors duration-200"
+                        >
+                          Blog
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -127,15 +138,14 @@ const Header = () => {
             </div>
 
             {/* Supporto dropdown */}
-            <div 
+            <div
               className="relative"
               onMouseEnter={() => handleMenuEnter('supporto')}
               onMouseLeave={handleMenuLeave}
             >
               <button
-                className={`text-lg font-medium transition-colors hover:text-blue-600 flex items-center ${
-                  (isHomepage || isRestructPage || isSostenibilita || isEticaeconformita) && !isScrolled ? 'text-white' : 'text-gray-700'
-                }`}
+                className={`text-lg font-medium transition-colors hover:text-blue-600 flex items-center ${(isHomepage || isRestructPage || isSostenibilita || isEticaeconformita || Chisiamo) && !isScrolled ? 'text-white' : 'text-gray-700'
+                  }`}
               >
                 Supporto
                 <ChevronDown className="ml-1 h-4 w-4" />
@@ -168,6 +178,8 @@ const Header = () => {
             </div>
           </nav>
 
+          <div className=""></div>
+
           {/* Mobile Menu */}
           <div className="md:hidden">
             <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
@@ -175,7 +187,7 @@ const Header = () => {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className={(isHomepage || isRestructPage || isSostenibilita || isEticaeconformita) && !isScrolled ? 'text-white' : 'text-gray-700'}
+                  className={(isHomepage || isRestructPage || isSostenibilita || isEticaeconformita || Chisiamo) && !isScrolled ? 'text-white' : 'text-gray-700'}
                 >
                   {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                 </Button>
@@ -192,20 +204,34 @@ const Header = () => {
                       {link.label}
                     </Link>
                   ))}
-                  <Link
-                    to="/azienda"
-                    className="text-lg font-medium text-gray-700 hover:text-blue-600"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Azienda
-                  </Link>
-                  <Link
-                    to="/supporto"
-                    className="text-lg font-medium text-gray-700 hover:text-blue-600"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Supporto
-                  </Link>
+                  <Accordion type="single" collapsible>
+                    <AccordionItem value="azienda">
+                      <AccordionTrigger>Azienda</AccordionTrigger>
+                      <AccordionContent>
+                        <Link to="/chisiamo" className="block py-2 text-gray-700 hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
+                          Chi Siamo
+                        </Link>
+                        <Link to="/sostenibilita" className="block py-2 text-gray-700 hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
+                          Sostenibilità
+                        </Link>
+                        <Link to="/eticaeconformita" className="block py-2 text-gray-700 hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
+                          Etica e conformità
+                        </Link>
+                        <Link to="/blog" className="block py-2 text-gray-700 hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
+                          Blog
+                        </Link>
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="supporto">
+                      <AccordionTrigger>Supporto</AccordionTrigger>
+                      <AccordionContent>
+                        <Link to="/support" className="block py-2 text-gray-700 hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
+                          Contattaci
+                        </Link>
+                        {/* Add more support links here if needed */}
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
                 </nav>
               </SheetContent>
             </Sheet>

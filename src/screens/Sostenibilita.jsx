@@ -6,25 +6,19 @@ import ecoPlugImg from '../assets/eco-plug.png'; // Make sure to add this image 
 import { Button } from '@/components/ui/button';
 import NewsLetter from '@/components/NewsLetter';
 import Blogs from '@/components/BlogSection';
-import LogoSectionGreen from '@/components/logo';
+import heroImage from '../assets/sostenibilita.png';
 
 const Sostenibilita = () => {
   return (
     <>
       <section className="relative overflow-hidden h-[60vh] sm:h-[70vh] bg-slate-900">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src={heroVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <div 
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        ></div>
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 h-full flex items-center">
-          <div className="lg:pr-10">
+          <div className="lg:pr-10 max-sm:mt-20">
             <h1 className="text-4xl text-white font-extrabold sm:text-5xl md:text-6xl mb-6">
               Il nostro impegno verso la
               <span className='text-green-500' > sostenibilità ambientale</span>

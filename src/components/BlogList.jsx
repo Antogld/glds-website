@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button"
-import { PlusCircle } from 'lucide-react';
+import { PlusCircle, Edit, Trash2 } from 'lucide-react';
+import newRequest from '@/utils/newRequest';
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetchBlogs();
@@ -16,15 +16,8 @@ const BlogList = () => {
   const fetchBlogs = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch('  https://glds-website-backend-1.onrender.com/api/blogs');
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      if (!Array.isArray(data)) {
-        throw new Error('Data is not an array');
-      }
-      setBlogs(data);
+      const response = await newRequest.get('/api/blogs');
+      setBlogs(response.data);
     } catch (error) {
       console.error('Error fetching blogs:', error);
       setError(error.message);
@@ -32,14 +25,6 @@ const BlogList = () => {
       setIsLoading(false);
     }
   };
-
-  if (isLoading) {
-    return <div className="container mx-auto px-4 py-8">Loading...</div>;
-  }
-
-  if (error) {
-    return <div className="container mx-auto px-4 py-8">Error: {error}</div>;
-  }
 
   return (
     <div className="py-32">
@@ -49,21 +34,15 @@ const BlogList = () => {
           <p className="lg:mx-auto lg:w-6/12 text-gray-600 dark:text-gray-300">
             Scopri le ultime novità, approfondimenti e consigli del settore attraverso il nostro blog: un'importante risorsa per rimanere al passo con le tendenze e le best practices.
           </p>
-          <Button
-            onClick={() => navigate('/blog/create')}
-            className="mt-4"
-          >
-            <PlusCircle className="mr-2 h-4 w-4" /> Add New Blog
-          </Button>
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {blogs.length > 0 ? (
             blogs.map((blog) => (
               <div key={blog._id} className="group p-6 sm:p-8 rounded-3xl bg-white border border-gray-100 dark:shadow-none dark:border-gray-700 dark:bg-gray-800 bg-opacity-50 shadow-gray-600/10">
                 <div className="relative overflow-hidden rounded-xl">
-                  <img
-                    src={blog.image ? `  https://glds-website-backend-1.onrender.com${blog.image}` : '/api/placeholder/1000/667'}
-                    alt={blog.title}
+                  <img 
+                    src={blog.image ? `${import.meta.env.VITE_API_URL}${blog.image}` : '/api/placeholder/1000/667'} 
+                    alt={blog.title} 
                     className="h-64 w-full object-cover object-top transition duration-500 group-hover:scale-105"
                   />
                 </div>

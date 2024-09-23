@@ -4,7 +4,7 @@ import LogoSection from '@/components/logo-section';
 import NewsLetter from '@/components/NewsLetter';
 import FAQs from '@/components/Faq';
 import laptopImg from '../assets/laptop.png';
-import Vector from '../assets/vector.png';
+import heroImage from '../assets/innovation.png';
 import testOne from '../assets/testimonial-1.png';
 import testTwo from '../assets/testimonial-2.png';
 import testThree from '../assets/testimonial-3.png';
@@ -12,28 +12,24 @@ import CallAction2 from '@/components/call-action-2';
 
 const InnovationHeroSection = () => {
   return <>
-    <div className="bg-gradient-to-b from-blue-50 to-teal-50 py-16 md:py-72 relative overflow-hidden">
-      <div className="container mx-auto px-4 z-10">
-        <div className="max-w-3xl">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight bg-clip-text text-transparent bg-slate-900 ">
+    <section className="relative overflow-hidden h-[60vh] sm:h-[70vh] bg-slate-900">
+      <div 
+        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroImage})` }}
+      ></div>
+      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 h-full flex items-center">
+        <div className="lg:pr-10">
+          <h1 className="text-4xl text-white font-extrabold sm:text-5xl md:text-6xl mb-6">
             Pionieri dell'Innovazione e Architetti del Futuro
           </h1>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mb-6">
+          <p className="mt-6 text-xl text-white text-opacity-80 max-w-2xl">
             Guidati dall'innovazione, costruiamo soluzioni aziendali all'avanguardia
             con l'obiettivo di plasmare un futuro di successi imprenditoriali.
           </p>
         </div>
       </div>
-      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-1/2 h-full hidden md:block">
-        <div className="relative w-full h-full">
-          <img
-            src={Vector}
-            alt="Workspace with laptop and calculator"
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5/6 h-5/6 rounded-l-full rounded-r-xl "
-          />
-        </div>
-      </div>
-    </div>
+    </section>
     <LogoSection />
     <div className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
