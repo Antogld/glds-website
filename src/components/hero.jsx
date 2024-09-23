@@ -4,7 +4,7 @@ import heroVideo from '../assets/hero-video.mp4';
 
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden h-[60vh] sm:h-[60vh] md:h-[70vh]">
+    <section className="relative overflow-hidden h-[60vh] sm:h-[80vh]">
       {/* Video Background */}
       <video
         autoPlay

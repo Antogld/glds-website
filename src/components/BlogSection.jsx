@@ -16,7 +16,7 @@ const Blogs = () => {
           </p>
         </div>
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <div class="group p-6 sm:p-8 rounded-3xl bg-white border border-gray-100 dark:shadow-none dark:border-gray-700 dark:bg-gray-800 bg-opacity-50  shadow-gray-600/10">
+          <div class="group p-2 rounded-3xl bg-white border border-gray-100 dark:shadow-none dark:border-gray-700 dark:bg-gray-800 bg-opacity-50  shadow-gray-600/10">
             <div class="relative overflow-hidden rounded-xl">
               <img src={blog1}
                 alt="art cover" loading="lazy" width="1000" height="667" class="h-64 w-full object-cover object-top transition duration-500 group-hover:scale-105" />
@@ -31,7 +31,7 @@ const Blogs = () => {
             </div>
 
           </div>
-          <div class="group p-6 sm:p-8 rounded-3xl bg-white border border-gray-100 dark:shadow-none dark:border-gray-700 dark:bg-gray-800 bg-opacity-50  shadow-gray-600/10">
+          <div class="group p-2 rounded-3xl bg-white border border-gray-100 dark:shadow-none dark:border-gray-700 dark:bg-gray-800 bg-opacity-50  shadow-gray-600/10">
             <div class="relative overflow-hidden rounded-xl">
               <img src={blog2}
                 alt="art cover" loading="lazy" width="1000" height="667" class="h-64 w-full object-cover object-top transition duration-500 group-hover:scale-105" />
@@ -47,7 +47,7 @@ const Blogs = () => {
             </div>
 
           </div>
-          <div class="group p-6 sm:p-8 rounded-3xl bg-white border border-gray-100 dark:shadow-none dark:border-gray-700 dark:bg-gray-800 bg-opacity-50  shadow-gray-600/10">
+          <div class="group p-2 rounded-3xl bg-white border border-gray-100 dark:shadow-none dark:border-gray-700 dark:bg-gray-800 bg-opacity-50  shadow-gray-600/10">
             <div class="relative overflow-hidden rounded-xl">
               <img src={blog3}
                 alt="art cover" loading="lazy" width="1000" height="667" class="h-64 w-full object-cover object-top transition duration-500 group-hover:scale-105" />

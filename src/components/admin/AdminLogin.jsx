@@ -19,7 +19,7 @@ const AdminLogin = () => {
 
       if (response.data && response.data.token) {
         Cookies.set('adminToken', response.data.token, { expires: 1, secure: true, sameSite: 'strict' });
-        navigate('/dashboard');
+        navigate('/admin');
       } else {
         setError('Invalid credentials');
       }
