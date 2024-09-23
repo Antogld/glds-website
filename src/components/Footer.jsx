@@ -1,9 +1,15 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import logo from "../assets/logo.png"
 
 const Footer = () => {
-  return <>
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  return (
     <footer className="rounded-xl bg-gray-100">
       <div className="container m-auto space-y-8 px-6 py-16 text-gray-600 ">
         <div className="flex flex-wrap items-center justify-between gap-4 border-b pb-8">
@@ -42,24 +48,18 @@ const Footer = () => {
         </div>
         <div className="grid grid-cols-2 gap-6 sm:grid-cols-3">
           <div>
-            <h6 className="text-lg font-medium text-cyan-900">Azienda</h6>
+            <h6 className="text-lg font-semibold text-cyan-900">Azienda</h6>
             <ul className="mt-4 list-inside space-y-4">
               <li>
-                <Link to="/chi-siamo" className="transition hover:text-cyan-600">Chi Siamo</Link>
+                <Link to="/chisiamo" className="transition hover:text-cyan-600">Chi Siamo</Link>
               </li>
               <li>
                 <Link to="/blog" className="transition hover:text-cyan-600">Blog</Link>
               </li>
-              <li>
-                <Link to="/testimonianze" className="transition hover:text-cyan-600">Testimonianze</Link>
-              </li>
-              <li>
-                <Link to="/comunicati-stampa" className="transition hover:text-cyan-600">Comunicati stampa</Link>
-              </li>
             </ul>
           </div>
           <div>
-            <h6 className="text-lg font-medium text-cyan-900">Prodotti</h6>
+            <h6 className="text-lg font-semibold text-cyan-900">Prodotti</h6>
             <ul className="mt-4 list-inside space-y-4">
               <li>
                 <Link to="/restruct" className="transition hover:text-cyan-600">Restruct</Link>
@@ -67,22 +67,19 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h6 className="text-lg font-medium text-cyan-900">Assistenza</h6>
+            <h6 className="text-lg font-semibold text-cyan-900">Assistenza</h6>
             <ul className="mt-4 list-inside space-y-4">
               <li>
-                <Link to="/supporto" className="transition hover:text-cyan-600">Supporto</Link>
+                <Link to="/support" className="transition hover:text-cyan-600">Supporto</Link>
               </li>
               <li>
                 <Link to="/forum" className="transition hover:text-cyan-600">Forum</Link>
               </li>
-              <li>
-                <Link to="/tutorial" className="transition hover:text-cyan-600">Tutorial</Link>
-              </li>
             </ul>
           </div>
         </div>
-        <div className="flex justify-between rounded-md bg-gray-200 px-4 py-3 text-gray-600">
-          <span>© 2024 Galdiero Systems. Tutti i diritti riservati.</span>
+        <div className="flex flex-col sm:flex-row justify-between rounded-md bg-gray-200 px-4 py-3 text-gray-600">
+          <span className="mb-2 sm:mb-0">© 2024 Galdiero Systems. Tutti i diritti riservati.</span>
           <div>
             <Link to="/privacy-policy" className="hover:text-cyan-600">Privacy Policy</Link>
             <span className="mx-2">|</span>
@@ -93,7 +90,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  </>
+  )
 }
 
 export default Footer
