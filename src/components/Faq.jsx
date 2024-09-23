@@ -1,33 +1,10 @@
-import React, { useState } from 'react';
-
-const FAQItem = ({ question, answer }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="border-b border-gray-200 py-4">
-      <button
-        className="flex justify-between items-center w-full text-left"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <span className="text-lg font-medium text-gray-900 dark:text-white">{question}</span>
-        <svg
-          className={`w-6 h-6 transform ${isOpen ? 'rotate-180' : ''}`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-        </svg>
-      </button>
-      {isOpen && (
-        <div className="mt-2 text-gray-600 dark:text-gray-300">
-          <p>{answer}</p>
-        </div>
-      )}
-    </div>
-  );
-};
+import React from 'react';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 const FAQs = () => {
   const faqData = [
@@ -51,16 +28,25 @@ const FAQs = () => {
 
   return (
     <div className="bg-white dark:bg-gray-900 py-16">
-      <div className="container mx-auto px-4 ">
+      <div className="container mx-auto px-4">
         <div className="mb-8">
-          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white ">FAQ</h2>
-          <p className=' text-center mx-auto w-full'>Qui trovi le risposte alle domande più frequenti.
-            Se non trovi quello che cerchi puoi sempre contattarci e otterrai una risposta il prima possibile.</p>
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white">FAQ</h2>
+          <p className='text-center mx-auto w-full mt-4 text-gray-600 dark:text-gray-300'>
+            Qui trovi le risposte alle domande più frequenti.
+            Se non trovi quello che cerchi puoi sempre contattarci e otterrai una risposta il prima possibile.
+          </p>
         </div>
-        <div className="max-w-7xl mx-auto">
-          {faqData.map((faq, index) => (
-            <FAQItem key={index} question={faq.question} answer={faq.answer} />
-          ))}
+        <div className="container mx-auto">
+          <Accordion type="single" collapsible className="w-full">
+            {faqData.map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index + 1}`}>
+                <AccordionTrigger>{faq.question}</AccordionTrigger>
+                <AccordionContent>
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </div>
