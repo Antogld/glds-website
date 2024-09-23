@@ -187,7 +187,7 @@ const Header = () => {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className={(isHomepage || isRestructPage || isSostenibilita || isEticaeconformita || Chisiamo) && !isScrolled ? 'text-white' : 'text-gray-700'}
+                  className={(isHomepage || isRestructPage || isSostenibilita || isEticaeconformita || Chisiamo) && !isScrolled ? 'text-white' : 'text-gray-700 text-md'}
                 >
                   {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                 </Button>
@@ -198,7 +198,7 @@ const Header = () => {
                     <Link
                       key={link.to}
                       to={link.to}
-                      className={`text-lg font-medium text-gray-700 hover:text-blue-600 ${isActiveLink(link.to) ? 'text-blue-600 font-medium' : ''}`}
+                      className={`text-lg font-medium text-gray-700 text-md hover:text-blue-600 ${isActiveLink(link.to) ? 'text-blue-600 font-medium' : ''}`}
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {link.label}
@@ -208,16 +208,16 @@ const Header = () => {
                     <AccordionItem value="azienda">
                       <AccordionTrigger>Azienda</AccordionTrigger>
                       <AccordionContent>
-                        <Link to="/chisiamo" className="block py-2 text-gray-700 hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
+                        <Link to="/chisiamo" className="block py-2 text-gray-700 text-md hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
                           Chi Siamo
                         </Link>
-                        <Link to="/sostenibilita" className="block py-2 text-gray-700 hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
+                        <Link to="/sostenibilita" className="block py-2 text-gray-700 text-md hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
                           Sostenibilità
                         </Link>
-                        <Link to="/eticaeconformita" className="block py-2 text-gray-700 hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
+                        <Link to="/eticaeconformita" className="block py-2 text-gray-700 text-md hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
                           Etica e conformità
                         </Link>
-                        <Link to="/blog" className="block py-2 text-gray-700 hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
+                        <Link to="/blog" className="block py-2 text-gray-700 text-md hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
                           Blog
                         </Link>
                       </AccordionContent>
@@ -225,7 +225,7 @@ const Header = () => {
                     <AccordionItem value="supporto">
                       <AccordionTrigger>Supporto</AccordionTrigger>
                       <AccordionContent>
-                        <Link to="/support" className="block py-2 text-gray-700 hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
+                        <Link to="/support" className="block py-2 text-gray-700 text-md hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
                           Contattaci
                         </Link>
                         {/* Add more support links here if needed */}
