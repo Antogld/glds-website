@@ -167,10 +167,7 @@ const Header = () => {
                           </li>
                         </ul>
                       </div>
-                      <div>
-                        <h3 className="font-semibold mb-2 border-b">Skills and Certifications</h3>
-                        {/* Add links or content for Skills and Certifications */}
-                      </div>
+                      
                     </div>
                   </div>
                 </div>
