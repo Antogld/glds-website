@@ -151,9 +151,9 @@ const Header = () => {
                 <ChevronDown className="ml-1 h-4 w-4" />
               </button>
               {activeMenu === 'supporto' && (
-                <div className="absolute top-full right-0 bg-white shadow-lg rounded-md overflow-hidden mt-2 w-[450px]">
+                <div className="absolute top-full right-0 bg-white shadow-lg rounded-md overflow-hidden mt-2 w-[200px]">
                   <div className="p-4">
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4">
                       <div>
                         <h3 className="font-semibold mb-2 border-b">Parla con noi</h3>
                         <ul>
