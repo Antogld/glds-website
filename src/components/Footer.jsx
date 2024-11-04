@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import logo from "../assets/logo.png"
+import { PolicyLinks } from './PolicyLink';
 
 const Footer = () => {
   const location = useLocation();
@@ -80,13 +81,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-col sm:flex-row justify-between rounded-md bg-gray-200 px-4 py-3 text-gray-600">
           <span className="mb-2 sm:mb-0">© 2024 Galdiero Systems. Tutti i diritti riservati.</span>
-          <div>
-            <Link to="/privacy-policy" className="hover:text-cyan-600">Privacy Policy</Link>
-            <span className="mx-2">|</span>
-            <Link to="/condizioni-uso" className="hover:text-cyan-600">Condizioni d'uso</Link>
-            <span className="mx-2">|</span>
-            <Link to="/cookie-policy" className="hover:text-cyan-600">Cookie Policy</Link>
-          </div>
+          <PolicyLinks />
         </div>
       </div>
     </footer>

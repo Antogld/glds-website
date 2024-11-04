@@ -13,9 +13,11 @@ import FAQs from './components/Faq'
 import Testimonials from './components/Testimonials'
 import NewsLetter from './components/NewsLetter'
 import Services from './components/Services'
+import CookieBanner from './components/CookieBanner'
 
 function App() {
   return <>
+    <CookieBanner />
     <HeroSection />
     <LogoSection />
     {/* <Services /> */}
