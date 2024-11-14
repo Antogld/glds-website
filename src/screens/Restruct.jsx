@@ -6,6 +6,7 @@ import FAQs from '@/components/Faq'
 import NewsLetter from '@/components/NewsLetter'
 import ServicesSection from '@/components/Services'
 import LogoSection from '@/components/logo-section'
+import { Link } from 'react-router-dom'
 
 const PricingTier = ({ title, price, isPopular, onTryFree }) => (
   <div className={`p-6 bg-white rounded-lg shadow ${isPopular ? 'border-2 border-blue-500' : ''}`}>
@@ -98,13 +99,13 @@ const Restruct = () => {
               Scegli il piano perfetto per potenziare i tuoi progetti con Restruct.
               Opzioni flessibili adatte ad aziende di tutte le dimensioni.
             </p>
-            <div className="mt-10">
-              <Button className="bg-blue-500 text-white hover:bg-blue-600">
-                Inizia Ora
-              </Button>
-              <Button variant="outline" className="ml-4 text-black border-white hover:bg-white hover:text-blue-500">
-                Contatta Vendite
-              </Button>
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-10">
+              <Link to="https://restruct.glds.it/" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105">
+                Inizia con noi
+              </Link>
+              <Link to="/support" className="bg-transparent hover:bg-white hover:text-blue-500 text-white font-semibold py-2 px-6 border border-white rounded-full transition duration-300 ease-in-out transform hover:scale-105">
+                Contattaci
+              </Link>
             </div>
           </div>
         </div>

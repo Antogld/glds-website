@@ -124,12 +124,24 @@ const Header = () => {
                       </div>
                       <div>
                         <h3 className="font-semibold mb-2 border-b">News</h3>
-                        <Link
-                          to="/blog"
-                          className="hover:text-blue-600 transition-colors duration-200"
-                        >
-                          Blog
-                        </Link>
+                        <ul>
+                          <li className="mb-2">
+                            <Link
+                              to="/blog"
+                              className="hover:text-blue-600 transition-colors duration-200"
+                            >
+                              Blog
+                            </Link>
+                          </li>
+                          <li className="mb-2">
+                            <Link
+                              to="/release-notes"
+                              className="hover:text-blue-600 transition-colors duration-200"
+                            >
+                              Release Notes
+                            </Link>
+                          </li>
+                        </ul>
                       </div>
                     </div>
                   </div>
@@ -167,7 +179,7 @@ const Header = () => {
                           </li>
                         </ul>
                       </div>
-                      
+
                     </div>
                   </div>
                 </div>

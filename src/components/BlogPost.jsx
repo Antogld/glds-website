@@ -1,54 +1,136 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import newRequest from '@/utils/newRequest';
+import { useParams, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import DOMPurify from 'dompurify';
+import { Card } from '@/components/ui/card';
+import { format } from 'date-fns';
+import { it } from 'date-fns/locale';
+import { ChevronLeft, AlertCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+
+const getImageUrl = (imagePath) => {
+  if (!imagePath) return null;
+  if (imagePath.startsWith('http')) return imagePath;
+  return `${import.meta.env.VITE_API_URL}/uploads/${imagePath.replace(/^\/uploads\//, '')}`;
+};
 
 const BlogPost = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { slug } = useParams();
 
   useEffect(() => {
+    const fetchBlog = async () => {
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/blog-posts/${id}`);
+        console.log('Blog Response:', response.data); // Debug log
+        if (response.data) {
+          setBlog(response.data);
+        } else {
+          setError('Blog non trovato');
+        }
+      } catch (error) {
+        console.error('Error fetching blog:', error);
+        setError(error.response?.data?.message || 'Errore nel caricamento del blog');
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchBlog();
-  }, [slug]);
+  }, [id]);
 
-  const fetchBlog = async () => {
-    try {
-      setLoading(true);
-      const response = await newRequest.get(`/api/blogs/${slug}`);
-      setBlog(response.data);
-    } catch (error) {
-      console.error('Error fetching blog:', error);
-      setError('Failed to fetch blog post. Please try again.');
-    } finally {
-      setLoading(false);
-    }
-  };
+  if (loading) {
+    return (
+      <div className="container py-8 max-w-4xl">
+        <Skeleton className="h-8 w-32 mb-6" />
+        <Skeleton className="w-full h-64 rounded-lg mb-6" />
+        <Skeleton className="h-12 w-3/4 mb-4" />
+        <Skeleton className="h-6 w-48 mb-8" />
+        <div className="space-y-4">
+          <Skeleton className="h-4 w-full" />
+          <Skeleton className="h-4 w-full" />
+          <Skeleton className="h-4 w-3/4" />
+        </div>
+      </div>
+    );
+  }
 
-  if (loading) return <div className="container mx-auto px-4 py-8">Loading...</div>;
-  if (error) return <div className="container mx-auto px-4 py-8">Error: {error}</div>;
-  if (!blog) return <div className="container mx-auto px-4 py-8">Blog post not found.</div>;
+  if (error || !blog) {
+    return (
+      <div className="container py-8">
+        <Alert variant="destructive">
+          <AlertCircle className="h-4 w-4" />
+          <AlertTitle>Errore</AlertTitle>
+          <AlertDescription>
+            {error || 'Blog post non trovato'}
+          </AlertDescription>
+        </Alert>
+        <Button
+          variant="ghost"
+          onClick={() => navigate('/blog')}
+          className="mt-4"
+        >
+          Torna alla lista dei blog
+        </Button>
+      </div>
+    );
+  }
 
   return (
-    <div className="container mx-auto px-4 py-32">
-      <Card className="max-w-3xl mx-auto border-0">
-        <CardHeader>
-          <CardTitle className="text-3xl font-bold my-6">{blog.title}</CardTitle>
-          {blog.image && (
-            <img 
-              src={`${import.meta.env.VITE_API_URL}${blog.image}`} 
-              alt={blog.title} 
-              className="w-full h-64 object-cover rounded-t-lg" 
+    <div className="mx-auto py-8 pt-20 max-w-4xl">
+      <Button
+        variant="link"
+        onClick={() => navigate(-1)}
+        className="flex items-center mb-6 hover:bg-accent"
+      >
+        <ChevronLeft className="w-5 h-5 mr-1" />
+        Torna indietro
+      </Button>
+
+      <Card className="p-6 border-0">
+        {blog.coverImage && (
+          <div className="relative w-full h-auto mb-6 overflow-hidden rounded-lg">
+            <img
+              src={getImageUrl(blog.coverImage)}
+              alt={blog.title}
+              className="w-full h-full object-cover"
             />
-          )}
-        </CardHeader>
-        <CardContent>
-          <div 
-            className="prose dark:prose-invert max-w-none mt-6" 
-            dangerouslySetInnerHTML={{ __html: blog.content }} 
-          />
-        </CardContent>
+          </div>
+        )}
+
+        <h1 className="text-4xl font-bold mb-4 text-foreground">{blog.title}</h1>
+        
+        <div className="flex items-center text-muted-foreground mb-8">
+          {blog.author && <span className="mr-4">Di {blog.author}</span>}
+          <span>
+            {format(new Date(blog.publishDate || blog.createdAt || new Date()), 'dd MMMM yyyy', { locale: it })}
+          </span>
+        </div>
+
+        <div 
+          className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-foreground prose-p:text-muted-foreground"
+          dangerouslySetInnerHTML={{ 
+            __html: DOMPurify.sanitize(blog.content || '')
+          }}
+        />
+
+        {blog.tags && blog.tags.length > 0 && (
+          <div className="mt-8 flex flex-wrap gap-2">
+            {blog.tags.map((tag, index) => (
+              <span
+                key={index}
+                className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-secondary text-secondary-foreground"
+              >
+                #{tag}
+              </span>
+            ))}
+          </div>
+        )}
       </Card>
     </div>
   );

@@ -24,6 +24,7 @@ import EditBlog from './components/EditBlog.jsx';
 import AdminLogin from './components/admin/AdminLogin.jsx';
 import AdminDashboard from './components/admin/AdminDashboard.jsx';
 import Cookies from 'js-cookie';
+import ReleaseNotes from './screens/ReleaseNotes.jsx';
 
 const Layout = () => {
   return (
@@ -64,7 +65,11 @@ const router = createBrowserRouter([
         element: <BlogList />
       },
       {
-        path: "/blog/:slug",
+        path: "/release-notes",
+        element: <ReleaseNotes />
+      },
+      {
+        path: "/blog/:id",
         element: <BlogPost />
       },
       {
@@ -93,7 +98,7 @@ const router = createBrowserRouter([
         element: <ProtectedRoute><CreateBlog /></ProtectedRoute>
       },
       {
-        path: "/blog/edit/:slug",
+        path: "/blog/edit/:id",
         element: <ProtectedRoute><EditBlog /></ProtectedRoute>
       },
       {

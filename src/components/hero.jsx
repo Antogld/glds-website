@@ -36,7 +36,7 @@ function HeroSection() {
             Benvenuti in Galdiero Systems, il punto d'incontro tra tecnologia e ingegnosità.
           </p>
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-            <Link to="/about" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105">
+            <Link to="https://restruct.glds.it/" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105">
               Inizia con noi
             </Link>
             <Link to="/support" className="bg-transparent hover:bg-white hover:text-blue-500 text-white font-semibold py-2 px-6 border border-white rounded-full transition duration-300 ease-in-out transform hover:scale-105">
