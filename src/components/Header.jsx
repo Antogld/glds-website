@@ -177,6 +177,14 @@ const Header = () => {
                               Contattaci
                             </Link>
                           </li>
+                          <li className="mb-2">
+                            <Link
+                              to="/docs"
+                              className="hover:text-blue-600 transition-colors duration-200"
+                            >
+                              Guida utente
+                            </Link>
+                          </li>
                         </ul>
                       </div>
 

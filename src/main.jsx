@@ -25,6 +25,8 @@ import AdminLogin from './components/admin/AdminLogin.jsx';
 import AdminDashboard from './components/admin/AdminDashboard.jsx';
 import Cookies from 'js-cookie';
 import ReleaseNotes from './screens/ReleaseNotes.jsx';
+import UserGuide from './screens/UserGuide.jsx';
+import SingleUserDoc from './screens/SingleUserDoc.jsx';
 
 const Layout = () => {
   return (
@@ -59,6 +61,14 @@ const router = createBrowserRouter([
       {
         path: "/support",
         element: <Supporto />
+      },
+      {
+        path: "/docs",
+        element: <UserGuide />
+      },
+      {
+        path: "/docs/:url",
+        element: <SingleUserDoc />
       },
       {
         path: "/blog",
