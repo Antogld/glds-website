@@ -245,6 +245,9 @@ const Header = () => {
                         <Link to="/support" className="block py-2 text-gray-700 text-md hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
                           Contattaci
                         </Link>
+                        <Link to="/docs" className="block py-2 text-gray-700 text-md hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
+                         Guida utente
+                        </Link>
                         {/* Add more support links here if needed */}
                       </AccordionContent>
                     </AccordionItem>
