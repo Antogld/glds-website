@@ -20,7 +20,7 @@ const SingleUserDoc = () => {
                   <div className=" px-10 py-6 mx-auto">
                         
           
-                     <div className="max-w-6xl px-10 py-6 mx-auto bg-gray-50">
+                     <div className="md:max-w-6xl md:px-10 py-6 mx-auto bg-gray-50">
    
 		                <div className="flex items-center justify-start mt-4 mb-4">
                         	<p className="px-2 py-1 font-bold bg-red-400 text-white rounded-lg hover:bg-gray-500 mr-4">{content?.category?.name}</p>
