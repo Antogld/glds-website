@@ -177,6 +177,14 @@ const Header = () => {
                               Contattaci
                             </Link>
                           </li>
+                          <li className="mb-2">
+                            <Link
+                              to="/docs"
+                              className="hover:text-blue-600 transition-colors duration-200"
+                            >
+                              Guida utente
+                            </Link>
+                          </li>
                         </ul>
                       </div>
 
@@ -236,6 +244,9 @@ const Header = () => {
                       <AccordionContent>
                         <Link to="/support" className="block py-2 text-gray-700 text-md hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
                           Contattaci
+                        </Link>
+                        <Link to="/docs" className="block py-2 text-gray-700 text-md hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>
+                         Guida utente
                         </Link>
                         {/* Add more support links here if needed */}
                       </AccordionContent>

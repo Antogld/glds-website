@@ -70,11 +70,15 @@ const Footer = () => {
           <div>
             <h6 className="text-lg font-semibold text-cyan-900">Assistenza</h6>
             <ul className="mt-4 list-inside space-y-4">
-              <li>
+            <li>
                 <Link to="/support" className="transition hover:text-cyan-600">Supporto</Link>
+              
               </li>
               <li>
                 <Link to="/forum" className="transition hover:text-cyan-600">Forum</Link>
+              </li>
+              <li>
+                <Link to="/docs" className="transition hover:text-cyan-600">Guida utente</Link>     
               </li>
             </ul>
           </div>
