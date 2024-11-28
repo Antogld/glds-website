@@ -104,7 +104,7 @@ const BlogPost = () => {
         )}
 
         <h1 className="text-4xl font-bold mb-4 text-foreground">{blog.title}</h1>
-        
+
         <div className="flex items-center text-muted-foreground mb-8">
           {blog.author && <span className="mr-4">Di {blog.author}</span>}
           <span>
@@ -112,9 +112,9 @@ const BlogPost = () => {
           </span>
         </div>
 
-        <div 
+        <div
           className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-foreground prose-p:text-muted-foreground"
-          dangerouslySetInnerHTML={{ 
+          dangerouslySetInnerHTML={{
             __html: DOMPurify.sanitize(blog.content || '')
           }}
         />

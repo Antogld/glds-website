@@ -112,3 +112,130 @@
 .swiper {
   height: 100%;
 }
+
+/* Quill Content Styles */
+.prose {
+  /* Existing prose styles */
+  max-width: none;
+  color: var(--foreground);
+}
+
+/* Ordered Lists */
+.prose ol {
+  list-style-type: decimal;
+  margin-left: 1.5em;
+  margin-bottom: 1.25em;
+}
+
+/* Nested Ordered Lists - Roman Numerals */
+.prose ol ol {
+  list-style-type: lower-roman;
+  margin-top: 0.75em;
+}
+
+/* Third Level Ordered Lists - Alphabetic */
+.prose ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+/* Unordered Lists */
+.prose ul {
+  list-style-type: disc;
+  margin-left: 1.5em;
+  margin-bottom: 1.25em;
+}
+
+/* Nested Unordered Lists */
+.prose ul ul {
+  list-style-type: circle;
+  margin-top: 0.75em;
+}
+
+/* List Items */
+.prose li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-left: 0.5em;
+}
+
+/* Blockquotes */
+.prose blockquote {
+  border-left: 4px solid var(--secondary);
+  padding-left: 1em;
+  margin: 1.5em 0;
+  font-style: italic;
+  color: var(--muted-foreground);
+}
+
+/* Code Blocks */
+.prose pre {
+  background-color: var(--muted);
+  padding: 1em;
+  border-radius: 0.375rem;
+  overflow-x: auto;
+  margin: 1.5em 0;
+}
+
+/* Inline Code */
+.prose code {
+  background-color: var(--muted);
+  padding: 0.2em 0.4em;
+  border-radius: 0.25em;
+  font-size: 0.875em;
+}
+
+/* Headers */
+.prose h1 {
+  font-size: 2.25em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.prose h2 {
+  font-size: 1.875em;
+  margin-top: 1.75em;
+  margin-bottom: 0.875em;
+}
+
+.prose h3 {
+  font-size: 1.5em;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+/* Links */
+.prose a {
+  color: var(--secondary);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+.prose a:hover {
+  color: var(--secondary-foreground);
+}
+
+/* Images */
+.prose img {
+  margin: 2em 0;
+  border-radius: 0.5rem;
+}
+
+/* Tables */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em 0;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid var(--border);
+  padding: 0.75em;
+  text-align: left;
+}
+
+.prose th {
+  background-color: var(--muted);
+  font-weight: 600;
+}
