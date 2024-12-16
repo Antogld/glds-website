@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
 
 const UserGuide = () => {
   const [docs, setDocs] = useState([]);
@@ -56,15 +57,18 @@ const UserGuide = () => {
               </CardHeader>
               <CardContent className="flex-grow">
                 <ul className="space-y-2">
-                  {item.docs.map((doc) => (
-                    <li key={doc._id}>
-                      <Link 
-                        to={`/docs/${doc.url}`}
-                        className="text-blue-600 hover:underline"
-                      >
-                        {doc.title}
-                      </Link>
-                    </li>
+                  {item.docs.map((doc, index) => (
+                    <React.Fragment key={doc._id}>
+                      {index > 0 && <Separator className="my-2" />}
+                      <li>
+                        <Link 
+                          to={`/docs/${doc.url}`}
+                          className="text-blue-600 hover:underline"
+                        >
+                          {doc.title}
+                        </Link>
+                      </li>
+                    </React.Fragment>
                   ))}
                 </ul>
               </CardContent>
