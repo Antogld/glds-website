@@ -1,155 +1,80 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const UserGuide = () => {
   const [docs, setDocs] = useState([]);
-  const [open, setOpen] = useState(false);
-  const [currentBlog, setCurrentBlog] = useState(null);
 
-  const fetchDocs=async()=>{
-
-    const res = await fetch(import.meta.env.VITE_API_URL + '/userguide')
-    
-    const data = await res.json()
-    
-    const sortByCategories = (data) => {
-      const categoryMap = new Map();
+  const fetchDocs = async () => {
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/userguide`);
+      const data = await res.json();
       
-      data.forEach((docs) => {
-      const categoryName = docs.category.name;
-      if (!categoryMap.has(categoryName)) {
-        categoryMap.set(categoryName, { category: categoryName, docs: [] });
-      }
-      categoryMap.get(categoryName).docs.push(docs);
-    });
-  
-    return Array.from(categoryMap.values());
+      const sortByCategories = (data) => {
+        const categoryMap = new Map();
+        
+        data.forEach((doc) => {
+          const categoryName = doc.category.name;
+          if (!categoryMap.has(categoryName)) {
+            categoryMap.set(categoryName, { category: categoryName, docs: [] });
+          }
+          categoryMap.get(categoryName).docs.push(doc);
+        });
+      
+        return Array.from(categoryMap.values());
+      };
+      
+      const result = sortByCategories(data);
+      setDocs(result);
+    } catch (error) {
+      console.error('Error fetching docs:', error);
+    }
   };
-  
-  const result = sortByCategories(data);
-  console.log(result)
-  setDocs(result)
-}
+
   useEffect(() => {
-    fetchDocs()
+    fetchDocs();
   }, []);
 
-
-    return (
-      <section className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto">
-        <div className="flex flex-col text-center w-full mb-10">
-       
-          <h1 className="sm:text-3xl text-2xl font-bold title-font mb-4 text-gray-900">
-          Guida utente
-          </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-          Scopri le nostre guide per l'utente e tutorial di configurazione per applicazione. 
-          </p>
-        </div>
-        <div className="grid md:grid-cols-5 grid-cols-2">
-        {docs.map((item)=>(
-          <div key={item.category} className=" px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-            <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
-            {item.category}
-            </h2>
-           <ul>
-            {item.docs.map((item)=>(
-           <li key={item._id}>
-            <Link to={`/docs/${item.url}`} className="text-[#2563EB] text-md hover:text-gray-800 cursor-pointer">{item.title}</Link>
-          </li>
+  return (
+    <ScrollArea className="h-screen">
+      <section className="container mx-auto px-4 py-16">
+        <Card className="my-8 border-0">
+          <CardHeader>
+            <CardTitle className="text-3xl font-bold text-center">Guida utente</CardTitle>
+            <CardDescription className="text-center">
+              Scopri le nostre guide per l'utente e tutorial di configurazione per applicazione.
+            </CardDescription>
+          </CardHeader>
+        </Card>
+        
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {docs.map((item) => (
+            <Card key={item.category} className="flex flex-col">
+              <CardHeader>
+                <CardTitle className="text-lg">{item.category}</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                <ul className="space-y-2">
+                  {item.docs.map((doc) => (
+                    <li key={doc._id}>
+                      <Link 
+                        to={`/docs/${doc.url}`}
+                        className="text-blue-600 hover:underline"
+                      >
+                        {doc.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
           ))}
-           </ul>
-
-          </div>
-        ))}
-
-          {/* <div className=" px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-            <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
-            Finance
-            </h2>
-           <ul>
-           <li>
-            <a class="text-[#2563EB] text-md hover:text-gray-800 cursor-pointer">First Link</a>
-          </li>
-          <li>
-            <a class="text-[#2563EB] text-md hover:text-gray-800 cursor-pointer">Second Link</a>
-          </li>
-          <li>
-            <a class="text-[#2563EB] text-md hover:text-gray-800 cursor-pointer">Third Link</a>
-          </li>
-          <li>
-            <a class="text-[#2563EB] text-md hover:text-gray-800 cursor-pointer">Fourth Link</a>
-          </li>
-
-           </ul>
-          </div>
-          <div className=" px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-            <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
-            Finance
-            </h2>
-           <ul>
-           <li>
-            <a class="text-[#2563EB] text-md hover:text-gray-800 cursor-pointer">First Link</a>
-          </li>
-          <li>
-            <a class="text-[#2563EB] text-md hover:text-gray-800 cursor-pointer">Second Link</a>
-          </li>
-          <li>
-            <a class="text-[#2563EB] text-md hover:text-gray-800 cursor-pointer">Third Link</a>
-          </li>
-          <li>
-            <a class="text-[#2563EB] text-md hover:text-gray-800 cursor-pointer">Fourth Link</a>
-          </li>
-
-           </ul>
-          </div>
-          <div className=" px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-            <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
-            Finance
-            </h2>
-           <ul>
-           <li>
-            <a class="text-[#2563EB] text-md hover:text-gray-800 cursor-pointer">First Link</a>
-          </li>
-          <li>
-            <a class="text-[#2563EB] text-md hover:text-gray-800 cursor-pointer">Second Link</a>
-          </li>
-          <li>
-            <a class="text-[#2563EB] text-md hover:text-gray-800 cursor-pointer">Third Link</a>
-          </li>
-          <li>
-            <a class="text-[#2563EB] text-md hover:text-gray-800 cursor-pointer">Fourth Link</a>
-          </li>
-
-           </ul>
-          </div>
-          <div className=" px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-            <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
-            Finance
-            </h2>
-           <ul>
-           <li>
-            <a class="text-[#2563EB] text-md hover:text-gray-800 cursor-pointer">First Link</a>
-          </li>
-          <li>
-            <a class="text-[#2563EB] text-md hover:text-gray-800 cursor-pointer">Second Link</a>
-          </li>
-          <li>
-            <a class="text-[#2563EB] text-md hover:text-gray-800 cursor-pointer">Third Link</a>
-          </li>
-          <li>
-            <a class="text-[#2563EB] text-md hover:text-gray-800 cursor-pointer">Fourth Link</a>
-          </li>
-
-           </ul>
-          </div> */}
-          
         </div>
-      
-      </div>
-    </section>
+      </section>
+    </ScrollArea>
   );
 };
 
 export default UserGuide;
+
